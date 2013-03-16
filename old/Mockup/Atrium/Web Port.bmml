@@ -1,0 +1,78 @@
+<mockup version="1.0" skin="sketch" measuredW="971" measuredH="617" mockupW="627" mockupH="510">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Image" x="344" y="107" w="-1" h="-1" measuredW="611" measuredH="510" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../../Pics/Atrium/Web%2520Port.JPG</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Arrow" x="374" y="202" w="27" h="45" measuredW="150" measuredH="100" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <curvature>1</curvature>
+        <direction>bottom</direction>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="353" y="247" w="105" h="28" measuredW="96" measuredH="29" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <size>16</size>
+        <text>double%20click</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Arrow" x="770" y="226" w="21" h="32" measuredW="150" measuredH="100" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <curvature>0</curvature>
+        <direction>bottom</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="755" y="202" w="105" h="28" measuredW="88" measuredH="29" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <size>16</size>
+        <text>HTTP%20port</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Arrow" x="586" y="325" w="21" h="25" measuredW="150" measuredH="100" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <curvature>0</curvature>
+        <direction>top</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="562" y="350" w="163" h="24" measuredW="163" measuredH="29" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <size>16</size>
+        <text>everyone%20can%20access</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Arrow" x="755" y="365" w="53" h="54" measuredW="150" measuredH="100" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <curvature>-1</curvature>
+        <direction>bottom</direction>
+        <leftArrow>true</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="808" y="380" w="163" h="24" measuredW="97" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <size>16</size>
+        <text>click%20to%20add</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

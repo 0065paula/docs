@@ -1,0 +1,58 @@
+<mockup version="1.0" skin="sketch" measuredW="1138" measuredH="574" mockupW="967" mockupH="524">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Image" x="171" y="50" w="-1" h="-1" measuredW="967" measuredH="524" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>../../Pics/Atrium/Stack%2520Design%25202.JPG</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Arrow" x="1003" y="151" w="27" h="36" measuredW="150" measuredH="100" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <curvature>-1</curvature>
+        <direction>bottom</direction>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="893" y="174" w="159" h="28" measuredW="106" measuredH="29" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <size>16</size>
+        <text>select%20region</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::RoundButton" x="171" y="379" w="82" h="74" measuredW="32" measuredH="32" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0</backgroundAlpha>
+        <borderColor>13369344</borderColor>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::RoundButton" x="314" y="379" w="87" h="74" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0</backgroundAlpha>
+        <borderColor>13369344</borderColor>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Arrow" x="401" y="391" w="143" h="43" measuredW="150" measuredH="100" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <curvature>-1</curvature>
+        <direction>bottom</direction>
+        <leftArrow>false</leftArrow>
+        <rightArrow>true</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="517" y="425" w="159" h="28" measuredW="99" measuredH="29" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+        <size>16</size>
+        <text>drap%20%26%20drop</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
