@@ -80,6 +80,20 @@ Copy and paste these into your Madeira <a href="https://my.madeiracloud.com/user
 <h3 style="color: red;">3. Designing a simple stack (Drupal MySQL HA example)</h3>
 For this example, we're going to create a simple stack for quickly deploying a Drupal CMS site with MySQL master and slave databases.
 
+1. Log in to the <a href="https://ide.madeiracloud.com/v2/">IDE</a>
+2. Create a new stacke by clicking "Create new stack" on the top left of the IDE dashboard
+3. Choose the <a href="http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/">AWS region</a> where you want to create your stack<br />
+<img src="create_stack.png" />
+4. Select "Classic" in the following menu (see <a href="" style="color: red;">VPC mode - Part xxx</a> for VPC)<br />
+<img src="create_stack_menu.png" />
+5. From the resource panel on the left, select the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> of your choice and drag'n'drop it to the canvas (Note: Availability Zones depend on regions)<br />
+<img src="availability_zones.png" />
+6. Following the same principle, drag'n'drop 3 instances ('Images' menu) inside the previously created Availability Zone (Note: We will use 64bits Amazon Linux AMIs in this example)<br />
+<img src="create_instances.png" />
+7. Click on each AMI icon and set the hostnames to the following in the right pannel<br />
+<img src="name_instances.png" />
+
+
 <h3>4. Setting up your application (Drupal MySQL HA example)</h3>
 After following the steps in <a href="" style="color:red;">Part 3 - Designing a simple stack</a>, your application is now running, and you have downloaded the KeyPair for the application.
 
@@ -116,8 +130,8 @@ SSH into the 'web' instance and write the following commands in order to install
 13. `chmod 646 /var/www/html/sites/default/settings.php`
 14. `service httpd start`
 
-<h4>Configure the primary_db</h4>
-SSH into the 'primary_db' instance and write the following commands in order to configure the databases:
+<h4>Configure the primarydb</h4>
+SSH into the 'primarydb' instance and write the following commands in order to configure the databases:
 
 1. `sudo su -`
 2. `chkconfig mysqld on`
@@ -138,12 +152,12 @@ Open your browser and access: http://{web-public-hostname}:
 5. For `Database username` enter `root`
 6. For `Database password` enter the password you entered earlier, e.g., `xxx`
 7. Click to expand `ADVANCED OPTIONS`
-8. For `Database host` enter `primary_db`
+8. For `Database host` enter `primarydb`
 9. For `Database port` enter `3306` and click `Save and Continue`
 10. Complete the remainder of the Drupal wizard
 
 <h4>Setting up MySQL HA</h4>
-SSH into primary_db and write the following commands:
+SSH into primarydb and write the following commands:
 
 1. `sudo su -`
 2. `mysql -u root -p` (then enter password and hit enter)
@@ -153,19 +167,19 @@ SSH into primary_db and write the following commands:
 6. at the end of the first block, after `symbolic-links=0` and before `[mysqld_safe]` paste the following: <pre>log-bin = mysql-bin<br />server-id = 1</pre>then save and quit (Ctrl-X)
 7. `/etc/init.d/mysqld restart`
 
-Now SSH into slave_db and write the following commands:
+Now SSH into slavedb and write the following commands:
 
 1. `sudo su -`
 2. `nano /etc/my.cnf`
 3. at the end of the first block, after `symbolic-links=0` and before `[mysqld_safe]` paste the following): <pre>log-bin = mysql-bin<br />server-id = 2<br />relay-log = mysql-relay-bin<br />log-slave-updates = 1<br />read-only = 1</pre>
 4. `/etc/init.d/mysqld restart`
 
-And back to primary_db:
+And back to primarydb:
 
 1. `mysqldump -u root -p --all-databases --master-data=2 > dump.db`
 2. Copy this file to the slave_db instance
 
-And back to slave_db:
+And back to slavedb:
 
 1. Go to the directory you copied `dump.db`
 2. `/etc/init.d/mysqld restart`
@@ -175,5 +189,5 @@ And back to slave_db:
 6. `mysql -u root < dump.db`
 7. `mysql -u root`
 8. Now you need to open your local copy of `dump.db` and search for `MASTER_LOG_FILE` and `MASTER_LOG_POS`, noting their values and replacing them in the following line:
-`CHANGE MASTER TO master_host='primary_db', master_user='root', master_password='letmein', master_log_file='mysql-bin.000001', master_log_pos=106;`
+`CHANGE MASTER TO master_host='primarydb', master_user='root', master_password='letmein', master_log_file='mysql-bin.000001', master_log_pos=106;`
 9. `START SLAVE;`
