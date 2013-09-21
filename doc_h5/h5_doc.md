@@ -77,11 +77,11 @@ You can now see the Access Key ID and Secret Access Key for this user.
 
 Copy and paste these into your Madeira <a href="https://my.madeiracloud.com/user/me/edit/AWS">AWS Credentials</a> page and click 'Save' and you're done!
 
-<h3 style="color: red;">3. Designing a simple stack (Drupal MySQL HA example)</h3>
+<h3>3. Designing a simple stack (Drupal MySQL HA example)</h3>
 For this example, we're going to create a simple stack for quickly deploying a Drupal CMS site with MySQL master and slave databases.
 
 1. Log in to the <a href="https://ide.madeiracloud.com/v2/">IDE</a>
-2. Create a new stacke by clicking "Create new stack" on the top left of the IDE dashboard
+2. Create a new stack by clicking "Create new stack" on the top left of the IDE dashboard
 3. Choose the <a href="http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/">AWS region</a> where you want to create your stack<br />
 <img src="create_stack.png" />
 4. Select "Classic" in the following menu (see <a href="" style="color: red;">VPC mode - Part xxx</a> for VPC)<br />
@@ -92,7 +92,47 @@ For this example, we're going to create a simple stack for quickly deploying a D
 <img src="create_instances.png" />
 7. Click on each AMI icon and set the hostnames to the following in the right pannel<br />
 <img src="name_instances.png" />
-
+8. Associate an EIP to every instance. Pay attention to keep them associated until the execution of the stack (the ocome should be colored)<br />
+<img src="add_eip.png" />
+9. Define two <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>, one for the front-end web server and one for the two back-end database servers<br /><br />
+Click on the web instance and then "Create new Security Group" in the "Security Groups" menu in the right pannel:<br />
+<img src="add_sg.png" /><br />
+Name this Security Group "front":<br />
+<img src="add_sg_front.png" /><br />
+Go back and assign the web instance to "front", then remove it from the default Security Group:<br />
+<img src="add_web_front.png" /><br />
+Repeat the same operation to create a new "back" Security Group:<br />
+<img src="add_sg_back.png" /><br />
+Then add the two "primarydb" and "slavedb" instances to the "back" Security Group, removing them from the default SG.<br />
+<img src="add_db_back.png" /><br />
+10. Create the Security Rules to link the instances together<br /><br />
+Click on one of the "back" instances, then in the "Security Groups" menu in the right pannel, click on the right arrow on the right of the "back" SG to access its properties.<br />
+In this menu, click on the "+" button to add a new rule.<br />
+<img src="add_rule.png" /><br />
+Start by adding a first rule allowing the <a href="http://www.openssh.org/">SSH</a> connection to your instances (allow all connections from port 22, following TCP protocol, inbound) for remote management (note: the source(s) IP(s)/range must follow the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation).<br />
+<img src="add_ssh_rule.png" /><br />
+Add a new rule to allow SQL connections from the "front" Security Group (port 3306, TCP).<br />
+<img src="add_front_rule.png" /><br />
+Following the same method, add a new rule to allow all TCP traffic between all the instances of this Security Group (ports 1-65535). You may as well want to allow all UDP and ICMP traffic.<br />
+You should at least have the following rules:<br />
+<img src="back_rules.png" /><br />
+Repeat the same operation for the "front" Security Group, in order to get the following rules.<br />
+<img src="front_rules.png" /><br /><br />
+Congratulations! Your stack is now set and ready to be launched!<br /><br />
+11. Click on the blank area of the canvas to put the focus on the Stack properties. Name the stack as "drupal-mysql-ha" in the right pannel, then click on the same icon on the left side of the top bar.<br />
+<img src="save_stack.png" /><br />
+12. Launch the stack by clicking on the "Run Stack" button.<br />
+<img src="run_stack.png" /><br />
+13. Name the app in the pop-up window, then click on "Run Stack".<br />
+<img src="name_app.png" /><br />
+14. Wait until the app to be launched.<br />
+<img src="start_app.png" /><br />
+15. Once started, your app should looks like the following:<br />
+<img src="app_started.png" /><br />
+16. Click on the web instance to get the instance properties. You can see here all details concerning the running instance on the right pannel. We will pay attention here to the "Primary Public IP" and the "Key Pair".<br />
+<img src="app_details.png" /><br />
+16. You can now click on the link under "Key Pair" ("DefaultKP---app-f364db3b" here) to download the key file and get the standard SSH connection command.<br />
+<img src="dl_key.png" /><br />
 
 <h3>4. Setting up your application (Drupal MySQL HA example)</h3>
 After following the steps in <a href="" style="color:red;">Part 3 - Designing a simple stack</a>, your application is now running, and you have downloaded the KeyPair for the application.
@@ -191,3 +231,83 @@ And back to slavedb:
 8. Now you need to open your local copy of `dump.db` and search for `MASTER_LOG_FILE` and `MASTER_LOG_POS`, noting their values and replacing them in the following line:
 `CHANGE MASTER TO master_host='primarydb', master_user='root', master_password='letmein', master_log_file='mysql-bin.000001', master_log_pos=106;`
 9. `START SLAVE;`
+
+<h2>Getting Started: Virtual Private Cloud (VPC) Mode</h2>
+<h3>1. Overview of VPC and AWS Platforms</h3>
+A Virtual Private Cloud (or VPC) is a virtual network of logically isolated EC2 instances and an optional VPN connection to your own datacenter. This allows greater security than the classic EC2 system. Amazon announced that they are changing to VPC by default to all new users on a region by region basis.
+
+This means that there are two platforms (EC2-Classic and EC2-VPC) and scenarios (Previously used regions and never used regions):
+<table><tbody><tr><th>Had the region been used before this change?</th>
+<th>Unspecified VPC</th>
+<th>Specified VPC</th>
+</tr><tr><td>Yes</td>
+<td>EC2-Classic</td>
+<td>EC2-VPC (non-default VPC)</td>
+</tr><tr></tr><tr><td>No</td>
+<td>EC2-VPC (default VPC)</td>
+<td>EC2-VPC (non-default VPC)</td>
+</tr></tbody></table>
+
+Let's go through each one:
+
+<h4>EC2-Classic</h4>
+This is the same as what was previously just called EC2. If your account was created before AWS made this change and you have previously used the region (or AWS has not yet made the change in the region) then you will have the option to use EC2-Classic.
+
+<h4>EC2-VPC (non-default VPC)</h4>
+Creating a non-default (custom) VPC is the same as what was previously just called VPC. No matter when you created your account or if you have used the region before or not, you will have access to this and there is no change to creating a custom VPC.
+
+So EC2 is now called EC2-Classic and is restricted to older users and VPC is now part of EC2-VPC when a custom VPC is created and is available to everyone. So what's new?
+
+<h4>EC2-VPC (default VPC)</h4>
+EC2-VPC now has a default VPC which replaces EC2-Classic for new users/regions. It has all the ease of use of EC2-Classic but instead your resources will be launched in to your own logically isolated VPC. This means you automatically get improved security and are able to use VPC only features like security group ingress rules, multiple IP address, elastic network interfaces and more.
+<br /><br /><br />
+You can learn more about the differences between the two platforms in the AWS docs.
+
+Madeira will automatically detect which platforms your currently selected region supports and if you have a default VPC. If required, you will be prompted to select a platform when creating a stack.
+
+<h4>Stack Restrictions:</h4>
+
+- You cannot mix EC2-Classic and EC2-VPC resources in the same stack
+- A stack can only contain one VPC (default or custom)
+- Do not delete your default VPC in the AWS Console or you will only be able to create custom VPCs in the AWS Console and Madeira
+- Deleting or heaviy modifying default subnets or VPC nodes in the AWS Console will likely cause issues when using the EC2-VPC Default VPC in Madeira
+
+<h3>2. Step-by-step tutorials</h3>
+<h3>2.1 VPC with a Public Subnet Only</h3>
+<a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a single public subnet, and an Internet gateway to enable communication over the Internet. We recommend this configuration if you need to run a single-tier, public-facing web application, such as a blog or a simple website."
+
+The following diagram shows what we will create in this example:<br />
+<img src="vpc_stack.png" /><br />
+
+Step by Step guide to configuring a VPC with a Public Subnet (you may want to have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial first, before creating a VPC)
+
+1. Create a new VPC stack, in the region of your choice:<br />
+<img src="vpc_region.png" /><br />
+<img src="vpc_select_stack.png" /><br />
+2. A default VPC is created when you create a new VPC stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
+You can optionaly edit the subnet details in the right pannel (don't forget to focus on the subnet by clicking on its blank area). The network address must be written following the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation:<br />
+<img src="vpc_default.png" />
+3. You can now add a new <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> of your choice by drag-n-drop it from the left pannel:<br />
+<img src="vpc_az.png" />
+4. When adding a new Availability Zone, a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> is created.<br />
+You can edit the subnet properties in the right pannel:<br />
+<img src="vpc_edit_subnet.png" /><br />
+Note that all Subnets are automatically connected to the Main Route Table. Subnets must be connected to only one Route Table.
+5. Add an <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html">Internet Gateway</a> and connect it to the Route Table<br />
+Drag an IGW from the resource panel (VPC category) to anywhere within the VPC. Note that the IGW will automatically snap to the left edge of the VPC and you can only have one IGW per VPC.<br />
+<img src="vpc_igw.png" /><br />
+6. You can now drag from the blue ports on the Route Table to the blue incoming port on the IGW to connect it.<br />
+<img src="vpc_igw_rt.png" /><br />
+7. You can edit the Route Table properties to define routing rules on the right pannel after selecting it. Note that when you connect an RT to an IGW we will automatically add a destination "0.0.0.0/0" rule.<br />
+<img src="vpc_edit_rt.png" /><br />
+<h4>Optionally</h4>
+You can stop there and save the stack as a networking template or we can continue and launch it as an app.
+
+1. Add an AMI to a Subnet<br />
+We can now drag on an AMI from the resource panel to inside the Subnet in our VPC.<br />
+<img src="vpc_add_ami.png" /><br />
+2. Add an <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP</a><br />
+Next click on the bottom-right icon of the instance to attach an EIP.<br />
+<img src="vpc_add_eip.png" /><br />
+
+Your VPC is now configured. Please, have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to get more information about app creation.
