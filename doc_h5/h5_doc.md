@@ -599,3 +599,29 @@ Drag a CGW to the canvas. Note that it must be outside the VPC. After have added
 7. Connect the CGW and VGW with a VPN Connection<br />
 Connect the purple ports of the VGW and CGW to create a VPN. You must enter your VPN CIDR, e.g., "172.16.0.0/24", in the right pannel.<br />
 <img src="vpc_cgw_vpn_pro.png" /><br />
+
+<h2>IDE interface</h2>
+<h3>1. User bar</h3>
+<h3>1.1 Description</h3>
+<h3>1.2 User menu</h3>
+<h3>1.3 Alert menu</h3>
+<h3>2. Dashboard</h3>
+<h3>2.1 Description</h3>
+<h3>2.2 Overview</h3>
+<h3>2.3 Global dashboard</h3>
+<h3>2.4 Region specific dashboard</h3>
+<h3>3. Stack edition</h3>
+<h3>3.1 Description</h3>
+<h3>3.2 Resources</h3>
+<h3>3.2.1 Availability Zones</h3>
+<h3>3.2.2 Images</h3>
+<h3>3.2.3 Volume and Snapshots</h3>
+<h3>3.2.4 Load Balancer and Auto Scaling</h3>
+<h3>3.2.5 EIPs</h3>
+<h3>3.2.6 Virtual Private Cloud (VPC Stack only)</h3>
+<h3>3.3 Top menu bar</h3>
+<h3>3.4 Security</h3>
+<h3>3.4.1 Security Groups</h3>
+<h3>3.4.2 Network ACL (VPC Stack only)</h3>
+<h3>4. App management</h3>
+<h3>4.1 Description</h3>
