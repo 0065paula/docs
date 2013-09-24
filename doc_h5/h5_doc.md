@@ -601,25 +601,191 @@ Connect the purple ports of the VGW and CGW to create a VPN. You must enter your
 <img src="vpc_cgw_vpn_pro.png" /><br />
 
 <h2>IDE interface</h2>
-<h3>1. User bar</h3>
+<h3>1 Global details</h3>
 <h3>1.1 Description</h3>
-<h3>1.2 User menu</h3>
-<h3>1.3 Alert menu</h3>
+<img src="ide_full.png" /><br />
+MadeiraCloud IDE is a What You See Is What You Get editor for cloud applications. In other words, the project enables system architects to draw their infrastructure instead of writing it, reducing the time taken to design, provision, configure and connect distributed cloud resources.
+
+The IDE is composed of three different screens:
+
+- The dashboard
+- The stack edition
+- The app monitoring
+
+We will go through each of them in the following parts.
+
+<h3>1.2 Userbar</h3>
+<img src="ide_userbar.png" /><br />
+The userbar is located on the top right of the IDE.
+
+This bar has two main menus:
+
+- The "alert" menu, aimed to list all the different alert/news/events<br />
+<img src="ide_userbar_alert.png" /><br />
+- The "user" menu, aimed to list the different user parameters<br />
+<img src="ide_userbar_menu.png" /><br />
+
 <h3>2. Dashboard</h3>
 <h3>2.1 Description</h3>
-<h3>2.2 Overview</h3>
-<h3>2.3 Global dashboard</h3>
-<h3>2.4 Region specific dashboard</h3>
+<img src="ide_dashboard_all.png" /><br /><br />
+The dashboard is a control center where you can control both your Madeira activiry and your AWS account activity and resources.
+
+<h4>Access</h4>
+To access the dashboard, simply login to the IDE, or, at any point, you can go back to the dashboard by clicking on the first icon on the left menubar, then selecting the region of your choice.<br /><br />
+<img src="ide_dashboard_access.png" /><br />
+
+<h4>Stack creation button</h4>
+A "Create new stack" has been implemented to help you creating new stacks with MadeiraCloud IDE. You can find it on the tol left of the dashboard. Please, go through <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to learn how to create a stack.<br /><br />
+<img src="ide_dashboard_newstack.png" /><br />
+
+<h3>2.2 Main view</h3>
+<img src="ide_dashboard_main.png" /><br /><br />
+The "Main View" is the top view of the dashboard, showing the number of app and stack in every AWS region. The "Main View" is always displayed in the dashboard.
+
+<h3>2.3 Global Dashboard</h3>
+<img src="ide_dashboard_global.png" /><br /><br />
+The global Dashboard is an overview of the costful AWS resources in all AWS regions.<br />
+This view helps to quickly determine which resources are currently in use and would cost money.
+
+You can see there:
+
+- <a href="http://aws.amazon.com/ec2/instance-types/">Running Instances</a>
+- <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IPs</a>
+- <a href="http://aws.amazon.com/ebs/">Volumes (EBS)</a>
+- <a href="http://aws.amazon.com/elasticloadbalancing/">Load Balancers (ELB)</a>
+- <a href="http://aws.amazon.com/vpc/">VPNs</a>
+
+note: VPCs are not costful, however, VPN connections to VPCs are.
+
+<h3>2.4 Region specific Dashboard</h3>
+<img src="ide_dashboard_region.png" /><br /><br />
+The region specific Dashboard is an overview of different resources in a specific region.
+
+This view is separated in two parts:
+
+- The App/Stack view: You can see here the App and Stack created in this specific region using MadeiraCloud IDE
+- The AWS resources view: You can see here the details of the most relevent AWS resources, wether or not created with MadeiraCloud IDE
+
+<h4>Details</h4>
+You can get more details about a specific resource by clicking on the "Detail" icon, on the right of each resource. This will display you all the needed information about this resource.
+
+For example, for an instance:<br />
+<img src="ide_dashboard_ami.png" />
+
 <h3>3. Stack edition</h3>
 <h3>3.1 Description</h3>
+<img src="ide_stack_all.png" /><br /><br />
+The Stack screen is where you design your Cloud infrstructure.
+
+<h4>Composition</h4>
+The Stack edition screen is mainly composed of four areas:
+
+- The resources pannel on the left
+- The details pannel on the right
+- The edition canvas in the middle
+- The menu bar on the top
+
+<h4>Access</h4>
+To access the Stack edition screen, you can either create a new stack or edit an already existing one. Simply click on any of the Stack creation button to create a new one, or click on the second icon on the left menubar, then select the stack of your choice to edit an already existing stack.<br /><br />
+<img src="ide_stack_access.png" /><br />
+
 <h3>3.2 Resources</h3>
 <h3>3.2.1 Availability Zones</h3>
+<img src="ide_stack_az.png" /><br /><br />
+The <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zones</a> are the location of your resources on AWS, specific to each region.
+
+You can switch to any other available AZ on the right pannel before running the Stack.
+
 <h3>3.2.2 Images</h3>
+<img src="ide_stack_ami.png" /><br /><br />
+The <a href="https://aws.amazon.com/amis">Images</a> represent the <a href="http://aws.amazon.com/ec2/instance-types/">EC2 Instances</a> with the <a href="https://aws.amazon.com/amis">AMI</a> of your choice.
+
+You can edit the Instance/AMI properties in the right pannel. Note a field "Number of Instance", aimed to create groups of identical Instances (e.g. <a href="http://en.wikipedia.org/wiki/Computer_cluster">clustering</a>).
+
+<h4>Images source</h4>
+You can select the AMIs source on the resources pannel.<br />
+<img src="ide_stack_ami_menu.png" />
+
+You can either get an AMI from the community by clicking in the "Browse Community Images" button.<br />
+<img src="ide_stack_ami_community.png" />
+
 <h3>3.2.3 Volume and Snapshots</h3>
+<img src="ide_stack_volume.png" /><br /><br />
+The <a href="http://aws.amazon.com/ebs/">Volumes</a> are some additional drives that you can add to your instances in order to enhance the storage capacity.<br />
+The <a href="http://aws.amazon.com/ebs/">Snapshots</a> describe a state of a device at a precise moment.
+
+To attach a Volume to an Instance, simply drag it from the Resources pannel, then drop it on an instance. You can then configure the Volume in the right pannel.
+
 <h3>3.2.4 Load Balancer and Auto Scaling</h3>
+<h4>Load Balancers</h4>
+<img src="ide_stack_elb.png" /><br /><br />
+The <a href="http://aws.amazon.com/elasticloadbalancing/">Load Balancers (ELB)</a> are some pre-configured instances automatically distributing the incomming traffric accross multiple EC2 Instances.
+
+Simply drag a load balancer from the Resources pannel then drop it outside of the Availability Zones. You can then link the load balancer to the instances.<br />
+You can configure the load balances on the right pannel.
+
+<h4>Auto Scaling Groups</h4>
+<img src="ide_stack_autoscaling.png" /><br /><br />
+The <a href="http://aws.amazon.com/autoscaling/">Auto Scaling Groups</a> are some containers with an automatically set number of instances.
+
+Once the group placed inside an Availability Zone, you can drag and drop an AMI inside to define the type of instance to scale.<br />
+You can then configure the Autoscaling Group in the right pannel.
+
 <h3>3.2.5 EIPs</h3>
+<img src="ide_stack_eip.png" /><br /><br />
+The <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">EIPs</a> are some static public IP address that you can associate to any instance/network card.
+
+To activate an EIP, click on the bottom right icon of an instance in order to make it colored.
+
 <h3>3.2.6 Virtual Private Cloud (VPC Stack only)</h3>
+<img src="ide_stack_vpc.png" /><br /><br />
+A <a href="http://aws.amazon.com/vpc/">VPC</a> is a virtual private network within a cloud infrastructure, isolating the resources from the internet.
+
+You can access the global VPC properties in the right pannel.
+
+<h4>Subnet</h4>
+<img src="ide_stack_vpc_subnet.png" /><br /><br />
+A <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> is, as its name implies, an isolated network inside a VPC.<br />
+You must set here the subnet CIDR block. You can define as well some ACL rules.
+
+<h4>Route Table</h4>
+<img src="ide_stack_vpc_rt.png" /><br /><br />
+A <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a> is a table gathering the different routes associated to a subnet.
+
+<h4>Internet Gateway</h4>
+<img src="ide_stack_vpc_igw.png" /><br /><br />
+An <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Internet Gateway</a> makes the link between the Internet and the Route Tables.
+
+<h4>Virtual Gateway</h4>
+<img src="ide_stack_vpc_vpn.png" /><br /><br />
+A <a href="">Virtual Gateway</a> makes the link between a private VPN and the Route Tables.
+
+<h4>Customer Gateway</h4>
+<img src="ide_stack_vpc_cgw.png" /><br /><br />
+A <a href="http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html">Customer Gateway</a> is an indication of an external gateway owned by you (VPN endpoint). You must add the CGW ip address in the properties pannel.
+
+When you link a VGW to a CGW, you must define the network prefix in the properties pannel.<br />
+<img src="ide_stack_vpc_cgw-vpn.png" />
+
+<h4>Network Interface</h4>
+<img src="ide_stack_vpc_net.png" /><br /><br />
+A <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Network Interface</a> is an additional network card that you can add to any instance.<br />
+You can link the card to any instance and set the network properties in the right pannel.
+
 <h3>3.3 Top menu bar</h3>
+<img src="ide_stack_topbar.png" /><br /><br />
+The topbar provides the basical actions during the stack edition:
+
+- Run the Stack
+- Save the Stack
+- Delete the Stack
+- Duplicate the Stack
+- Create a new Stack
+- Zoom in
+- Zoom out
+- Export (as png or json)
+- Security Group rules links display
+
 <h3>3.4 Security</h3>
 <h3>3.4.1 Security Groups</h3>
 <h3>3.4.2 Network ACL (VPC Stack only)</h3>
