@@ -1,6 +1,6 @@
-<h1>Wiki HTML5</h1>
-<h2>Getting Started: Normal Mode</h2>
-<h3>1. Overview</h3>
+#Wiki HTML5
+##Getting Started: Normal Mode
+###1. Overview
 MadeiraCloud groups your resources and manages them as a single unit, either an “App” or a “Stack”. The concept is similar to VMware's vApp and OVF:
 
 - A stack is a template of an application containing everything that's needed to run it, e.g., code, servers, storage, network configuration, etc., but in a static, re-usable form.
@@ -8,14 +8,14 @@ MadeiraCloud groups your resources and manages them as a single unit, either an 
 
 Put simply, an app is everything to do with a running setup and a stack is like a snapshot or image of an entire app. Stacks are reusable so they can be launched into multiple apps which will then each have their own unique component resources with no conflicts.
 
-<h3>2. Connecting MadeiraCloud and AWS</h3>
+###2. Connecting MadeiraCloud and AWS
 An Amazon Web Services account is required in order to get full functionality from MadeiraCloud.
 
-<h4>2.1 Prerequisites</h4>
+####2.1 Prerequisites
 - If you haven't already, please <a href="http://aws.amazon.com/">sign up for an AWS account</a> (EC2 is mandatory).
 - And obviously, a Madeira account is also required. You can sign up for a <a href="https://my.madeiracloud.com/user/register">free account here</a>.
 
-<h4>2.2 Entering your Credentials</h4>
+####2.2 Entering your Credentials
 The next step is to let us know your AWS account credentials in order for MadeiraCloud to connect with AWS on your behalf.
 
 Go to your <a href="https://my.madeiracloud.com/user/me/edit/AWS">AWS Credentials</a> page on MadeiraCloud and you will be prompted with the following:
@@ -40,15 +40,15 @@ This is required in order for us to use AWS' Rest APIs to let you manage your AW
 
 Just copy and paste these three pieces of information in to your Madeira AWS page, hit save and you are done.
 
-<h3>2b. Connecting MadeiraCloud and AWS using IAM</h3>
-<h4>Make sure IAM access is enabled.</h4>
+###2b. Connecting MadeiraCloud and AWS using IAM
+####Make sure IAM access is enabled.
 Log in to your AWS account and then go <a href="https://aws-portal.amazon.com/gp/aws/manageYourAccount">here</a>.
 
 <img src="https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-active.png" />
 
 Scroll down to the IAM user access section and make sure both the 'Account Activity Page' and 'Usage Reports Page' checkboxes are ticked and then click Activate Now.
 
-<h4>Create a user for use with MadeiraCloud.</h4>
+####Create a user for use with MadeiraCloud.
 Go to the AWS Console and click the <a href="https://console.aws.amazon.com/iam/home">IAM tab</a>, then create a group for your user. You can call it anything you like, but something Madeira related probably makes sense!
 
 <img src="https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-create-group.png" />
@@ -77,7 +77,7 @@ You can now see the Access Key ID and Secret Access Key for this user.
 
 Copy and paste these into your Madeira <a href="https://my.madeiracloud.com/user/me/edit/AWS">AWS Credentials</a> page and click 'Save' and you're done!
 
-<h3>3. Designing a simple stack (Drupal MySQL HA example)</h3>
+###3. Designing a simple stack (Drupal MySQL HA example)
 For this example, we're going to create a simple stack for quickly deploying a Drupal CMS site with MySQL master and slave databases.
 
 1. Log in to the <a href="https://ide.madeiracloud.com/v2/">IDE</a>
@@ -134,25 +134,25 @@ Congratulations! Your stack is now set and ready to be launched!<br /><br />
 16. You can now click on the link under "Key Pair" ("DefaultKP---app-f364db3b" here) to download the key file and get the standard SSH connection command.<br />
 <img src="dl_key.png" /><br />
 
-<h3>4. Setting up your application (Drupal MySQL HA example)</h3>
+###4. Setting up your application (Drupal MySQL HA example)
 After following the steps in <a href="" style="color:red;">Part 3 - Designing a simple stack</a>, your application is now running, and you have downloaded the KeyPair for the application.
 
 You will now need to SSH into the web instance.
 You can use any terminal client to do so. If you are running under Windows, which doesn't have any SSH compatible terminal embedded, we recomment PuTTY. In this case, you will also need to know how to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?r=madeira">connect to Linux/UNIX Instances from PuTTY</a>.
 
-<h4>Disclamer</h4>
+####Disclamer
 Please, be aware that these steps are informative, given as an example, and may differ (more, or less) from the reality, due to anyone's configuration.
 
 We can't provide any warranty or support if you face issues during this phase, then be sure of what you are doing while setting up your applications.
 
-<h4>Setting up the instances</h4>
+####Setting up the instances
 In this example, all the instances are running Amazon Linux, so write:
 
 - `curl -s http://download.madeiracloud.com/setup/amazon.sh | sh"`
 
 to the terminal for each instance as the root user.
 
-<h4>Deploying Drupal</h4>
+####Deploying Drupal
 SSH into the 'web' instance and write the following commands in order to install Drupal:
 
 1. `sudo su -`
@@ -170,7 +170,7 @@ SSH into the 'web' instance and write the following commands in order to install
 13. `chmod 646 /var/www/html/sites/default/settings.php`
 14. `service httpd start`
 
-<h4>Configure the primarydb</h4>
+####Configure the primarydb
 SSH into the 'primarydb' instance and write the following commands in order to configure the databases:
 
 1. `sudo su -`
@@ -182,7 +182,7 @@ SSH into the 'primarydb' instance and write the following commands in order to c
 7. `FLUSH PRIVILEGES;`
 8. `CREATE DATABASE drupal;` (or replace `drupal` with a database name of your choice)
 
-<h4>Setting up Drupal</h4>
+####Setting up Drupal
 Open your browser and access: http://{web-public-hostname}:
 
 1. Select the type of installation you would like and click `Save and Continue`
@@ -196,7 +196,7 @@ Open your browser and access: http://{web-public-hostname}:
 9. For `Database port` enter `3306` and click `Save and Continue`
 10. Complete the remainder of the Drupal wizard
 
-<h4>Setting up MySQL HA</h4>
+####Setting up MySQL HA
 SSH into primarydb and write the following commands:
 
 1. `sudo su -`
@@ -232,8 +232,8 @@ And back to slavedb:
 `CHANGE MASTER TO master_host='primarydb', master_user='root', master_password='letmein', master_log_file='mysql-bin.000001', master_log_pos=106;`
 9. `START SLAVE;`
 
-<h2>Getting Started: Virtual Private Cloud (VPC) Mode</h2>
-<h3>1. Overview of VPC and AWS Platforms</h3>
+##Getting Started: Virtual Private Cloud (VPC) Mode
+###1. Overview of VPC and AWS Platforms
 A Virtual Private Cloud (or VPC) is a virtual network of logically isolated EC2 instances and an optional VPN connection to your own datacenter. This allows greater security than the classic EC2 system. Amazon announced that they are changing to VPC by default to all new users on a region by region basis.
 
 This means that there are two platforms (EC2-Classic and EC2-VPC) and scenarios (Previously used regions and never used regions):
@@ -250,30 +250,30 @@ This means that there are two platforms (EC2-Classic and EC2-VPC) and scenarios 
 
 Let's go through each one:
 
-<h4>EC2-Classic</h4>
+####EC2-Classic
 This is the same as what was previously just called EC2. If your account was created before AWS made this change and you have previously used the region (or AWS has not yet made the change in the region) then you will have the option to use EC2-Classic.
 
-<h4>EC2-VPC (non-default VPC)</h4>
+####EC2-VPC (non-default VPC)
 Creating a non-default (custom) VPC is the same as what was previously just called VPC. No matter when you created your account or if you have used the region before or not, you will have access to this and there is no change to creating a custom VPC.
 
 So EC2 is now called EC2-Classic and is restricted to older users and VPC is now part of EC2-VPC when a custom VPC is created and is available to everyone. So what's new?
 
-<h4>EC2-VPC (default VPC)</h4>
+####EC2-VPC (default VPC)
 EC2-VPC now has a default VPC which replaces EC2-Classic for new users/regions. It has all the ease of use of EC2-Classic but instead your resources will be launched in to your own logically isolated VPC. This means you automatically get improved security and are able to use VPC only features like security group ingress rules, multiple IP address, elastic network interfaces and more.
 <br /><br /><br />
 You can learn more about the differences between the two platforms in the AWS docs.
 
 Madeira will automatically detect which platforms your currently selected region supports and if you have a default VPC. If required, you will be prompted to select a platform when creating a stack.
 
-<h4>Stack Restrictions:</h4>
+####Stack Restrictions:
 
 - You cannot mix EC2-Classic and EC2-VPC resources in the same stack
 - A stack can only contain one VPC (default or custom)
 - Do not delete your default VPC in the AWS Console or you will only be able to create custom VPCs in the AWS Console and Madeira
 - Deleting or heaviy modifying default subnets or VPC nodes in the AWS Console will likely cause issues when using the EC2-VPC Default VPC in Madeira
 
-<h3>2. Step-by-step tutorials</h3>
-<h3>2.1 VPC with a Public Subnet Only</h3>
+###2. Step-by-step tutorials
+###2.1 VPC with a Public Subnet Only
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a single public subnet, and an Internet gateway to enable communication over the Internet. We recommend this configuration if you need to run a single-tier, public-facing web application, such as a blog or a simple website."
 
 The following diagram shows what we will create in this example:<br />
@@ -300,7 +300,7 @@ Drag an IGW from the resource panel (VPC category) to anywhere within the VPC. N
 <img src="vpc_igw_rt.png" /><br />
 7. You can edit the Route Table properties to define routing rules on the right pannel after selecting it. Note that when you connect an RT to an IGW we will automatically add a destination "0.0.0.0/0" rule.<br />
 <img src="vpc_edit_rt.png" /><br />
-<h4>Optionally</h4>
+####Optionally
 You can stop there and save the stack as a networking template or we can continue and launch it as an app.
 
 1. Add an AMI to a Subnet<br />
@@ -312,7 +312,7 @@ Next click on the bottom-right icon of the instance to attach an EIP.<br />
 
 Your VPC is now configured. Please, have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to get more information about app creation.
 
-<h3>2.2 VPC with Public and Private Subnets</h3>
+###2.2 VPC with Public and Private Subnets
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet. The instances in the public subnet can receive inbound traffic directly from the Internet, whereas the instances in the private subnet can't. The instances in the public subnet can send outbound traffic directly to the Internet, whereas the instances in the private subnet can't. Instead, the instances in the private subnet can access the Internet by using a network address translation (NAT) instance that you launch into the public subnet."
 
 The following diagram shows what we will create in this example:<br />
@@ -459,7 +459,7 @@ You can now add the following rules to the Security Groups (see the <a href="" s
 <td>443</td>
 </tr></tbody></table>
 
-<h3>2.3 VPC with Public and Private Subnets and Hardware VPN Access</h3>
+###2.3 VPC with Public and Private Subnets and Hardware VPN Access
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario3.html">Description</a>: “The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet, and a virtual private gateway to enable communication with your own network over an IPsec VPN tunnel. We recommend this scenario if you want to extend your network into the cloud and also directly access the Internet from your VPC. This scenario enables you to run a multi-tiered application with a scalable web front end in a public subnet, and to house your data in a private subnet that is connected to your network by an IPsec VPN connection.”
 
 The following diagram shows what we will create in this example:<br />
@@ -570,7 +570,7 @@ Define it as follow:<br /><table><tbody><tr><td rowspan="2">SG</td>
 You can edit the VPC properties to configure DHCP in the right pannel.<br />
 <img src="vpc_vpn_dhcp.png" />
 
-<h3>2.4 VPC with a Private Subnet Only and Hardware VPN Access</h3>
+###2.4 VPC with a Private Subnet Only and Hardware VPN Access
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html">Description</a>: “The configuration for this scenario includes a virtual private cloud (VPC) with a single private subnet, and a virtual private gateway to enable communication with your own network over an IPsec VPN tunnel. There is no Internet gateway to enable communication over the Internet. We recommend this scenario if you want to extend your network into the cloud using Amazon's infrastructure without exposing your network to the Internet.”
 
 The following diagram shows what we will create in this example:<br />
@@ -600,9 +600,9 @@ Drag a CGW to the canvas. Note that it must be outside the VPC. After have added
 Connect the purple ports of the VGW and CGW to create a VPN. You must enter your VPN CIDR, e.g., "172.16.0.0/24", in the right pannel.<br />
 <img src="vpc_cgw_vpn_pro.png" /><br />
 
-<h2>IDE interface</h2>
-<h3>1 Global details</h3>
-<h3>1.1 Description</h3>
+##IDE interface
+###1 Global details
+###1.1 Description
 <img src="ide_full.png" /><br />
 MadeiraCloud IDE is a What You See Is What You Get editor for cloud applications. In other words, the project enables system architects to draw their infrastructure instead of writing it, reducing the time taken to design, provision, configure and connect distributed cloud resources.
 
@@ -614,7 +614,7 @@ The IDE is composed of three different screens:
 
 We will go through each of them in the following parts.
 
-<h3>1.2 Userbar</h3>
+###1.2 Userbar
 <img src="ide_userbar.png" /><br />
 The userbar is located on the top right of the IDE.
 
@@ -625,24 +625,24 @@ This bar has two main menus:
 - The "user" menu, aimed to list the different user parameters<br />
 <img src="ide_userbar_menu.png" /><br />
 
-<h3>2. Dashboard</h3>
-<h3>2.1 Description</h3>
+###2. Dashboard
+###2.1 Description
 <img src="ide_dashboard_all.png" /><br /><br />
 The dashboard is a control center where you can control both your Madeira activiry and your AWS account activity and resources.
 
-<h4>Access</h4>
+####Access
 To access the dashboard, simply login to the IDE, or, at any point, you can go back to the dashboard by clicking on the first icon on the left menubar, then selecting the region of your choice.<br /><br />
 <img src="ide_dashboard_access.png" /><br />
 
-<h4>Stack creation button</h4>
+####Stack creation button
 A "Create new stack" has been implemented to help you creating new stacks with MadeiraCloud IDE. You can find it on the tol left of the dashboard. Please, go through <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to learn how to create a stack.<br /><br />
 <img src="ide_dashboard_newstack.png" /><br />
 
-<h3>2.2 Main view</h3>
+###2.2 Main view
 <img src="ide_dashboard_main.png" /><br /><br />
 The "Main View" is the top view of the dashboard, showing the number of app and stack in every AWS region. The "Main View" is always displayed in the dashboard.
 
-<h3>2.3 Global Dashboard</h3>
+###2.3 Global Dashboard
 <img src="ide_dashboard_global.png" /><br /><br />
 The global Dashboard is an overview of the costful AWS resources in all AWS regions.<br />
 This view helps to quickly determine which resources are currently in use and would cost money.
@@ -657,7 +657,7 @@ You can see there:
 
 note: VPCs are not costful, however, VPN connections to VPCs are.
 
-<h3>2.4 Region specific Dashboard</h3>
+###2.4 Region specific Dashboard
 <img src="ide_dashboard_region.png" /><br /><br />
 The region specific Dashboard is an overview of different resources in a specific region.
 
@@ -666,18 +666,18 @@ This view is separated in two parts:
 - The App/Stack view: You can see here the App and Stack created in this specific region using MadeiraCloud IDE
 - The AWS resources view: You can see here the details of the most relevent AWS resources, wether or not created with MadeiraCloud IDE
 
-<h4>Details</h4>
+####Details
 You can get more details about a specific resource by clicking on the "Detail" icon, on the right of each resource. This will display you all the needed information about this resource.
 
 For example, for an instance:<br />
 <img src="ide_dashboard_ami.png" />
 
-<h3>3. Stack edition</h3>
-<h3>3.1 Description</h3>
+###3. Stack edition
+###3.1 Description
 <img src="ide_stack_all.png" /><br /><br />
 The Stack screen is where you design your Cloud infrstructure.
 
-<h4>Composition</h4>
+####Composition
 The Stack edition screen is mainly composed of four areas:
 
 - The resources pannel on the left
@@ -685,94 +685,94 @@ The Stack edition screen is mainly composed of four areas:
 - The edition canvas in the middle
 - The menu bar on the top
 
-<h4>Access</h4>
+####Access
 To access the Stack edition screen, you can either create a new stack or edit an already existing one. Simply click on any of the Stack creation button to create a new one, or click on the second icon on the left menubar, then select the stack of your choice to edit an already existing stack.<br /><br />
 <img src="ide_stack_access.png" /><br />
 
-<h3>3.2 Resources</h3>
-<h3>3.2.1 Availability Zones</h3>
+###3.2 Resources
+###3.2.1 Availability Zones
 <img src="ide_stack_az.png" /><br /><br />
 The <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zones</a> are the location of your resources on AWS, specific to each region.
 
 You can switch to any other available AZ on the right pannel before running the Stack.
 
-<h3>3.2.2 Images</h3>
+###3.2.2 Images
 <img src="ide_stack_ami.png" /><br /><br />
 The <a href="https://aws.amazon.com/amis">Images</a> represent the <a href="http://aws.amazon.com/ec2/instance-types/">EC2 Instances</a> with the <a href="https://aws.amazon.com/amis">AMI</a> of your choice.
 
 You can edit the Instance/AMI properties in the right pannel. Note a field "Number of Instance", aimed to create groups of identical Instances (e.g. <a href="http://en.wikipedia.org/wiki/Computer_cluster">clustering</a>).
 
-<h4>Images source</h4>
+####Images source
 You can select the AMIs source on the resources pannel.<br />
 <img src="ide_stack_ami_menu.png" />
 
 You can either get an AMI from the community by clicking in the "Browse Community Images" button.<br />
 <img src="ide_stack_ami_community.png" />
 
-<h3>3.2.3 Volume and Snapshots</h3>
+###3.2.3 Volume and Snapshots
 <img src="ide_stack_volume.png" /><br /><br />
 The <a href="http://aws.amazon.com/ebs/">Volumes</a> are some additional drives that you can add to your instances in order to enhance the storage capacity.<br />
 The <a href="http://aws.amazon.com/ebs/">Snapshots</a> describe a state of a device at a precise moment.
 
 To attach a Volume to an Instance, simply drag it from the Resources pannel, then drop it on an instance. You can then configure the Volume in the right pannel.
 
-<h3>3.2.4 Load Balancer and Auto Scaling</h3>
-<h4>Load Balancers</h4>
+###3.2.4 Load Balancer and Auto Scaling
+####Load Balancers
 <img src="ide_stack_elb.png" /><br /><br />
 The <a href="http://aws.amazon.com/elasticloadbalancing/">Load Balancers (ELB)</a> are some pre-configured instances automatically distributing the incomming traffric accross multiple EC2 Instances.
 
 Simply drag a load balancer from the Resources pannel then drop it outside of the Availability Zones. You can then link the load balancer to the instances.<br />
 You can configure the load balances on the right pannel.
 
-<h4>Auto Scaling Groups</h4>
+####Auto Scaling Groups
 <img src="ide_stack_autoscaling.png" /><br /><br />
 The <a href="http://aws.amazon.com/autoscaling/">Auto Scaling Groups</a> are some containers with an automatically set number of instances.
 
 Once the group placed inside an Availability Zone, you can drag and drop an AMI inside to define the type of instance to scale.<br />
 You can then configure the Autoscaling Group in the right pannel.
 
-<h3>3.2.5 EIPs</h3>
+###3.2.5 EIPs
 <img src="ide_stack_eip.png" /><br /><br />
 The <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">EIPs</a> are some static public IP address that you can associate to any instance/network card.
 
 To activate an EIP, click on the bottom right icon of an instance in order to make it colored.
 
-<h3>3.2.6 Virtual Private Cloud (VPC Stack only)</h3>
+###3.2.6 Virtual Private Cloud (VPC Stack only)
 <img src="ide_stack_vpc.png" /><br /><br />
 A <a href="http://aws.amazon.com/vpc/">VPC</a> is a virtual private network within a cloud infrastructure, isolating the resources from the internet.
 
 You can access the global VPC properties in the right pannel.
 
-<h4>Subnet</h4>
+####Subnet
 <img src="ide_stack_vpc_subnet.png" /><br /><br />
 A <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> is, as its name implies, an isolated network inside a VPC.<br />
 You must set here the subnet CIDR block. You can define as well some ACL rules.
 
-<h4>Route Table</h4>
+####Route Table
 <img src="ide_stack_vpc_rt.png" /><br /><br />
 A <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a> is a table gathering the different routes associated to a subnet.
 
-<h4>Internet Gateway</h4>
+####Internet Gateway
 <img src="ide_stack_vpc_igw.png" /><br /><br />
 An <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Internet Gateway</a> makes the link between the Internet and the Route Tables.
 
-<h4>Virtual Gateway</h4>
+####Virtual Gateway
 <img src="ide_stack_vpc_vpn.png" /><br /><br />
 A <a href="">Virtual Gateway</a> makes the link between a private VPN and the Route Tables.
 
-<h4>Customer Gateway</h4>
+####Customer Gateway
 <img src="ide_stack_vpc_cgw.png" /><br /><br />
 A <a href="http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html">Customer Gateway</a> is an indication of an external gateway owned by you (VPN endpoint). You must add the CGW ip address in the properties pannel.
 
 When you link a VGW to a CGW, you must define the network prefix in the properties pannel.<br />
 <img src="ide_stack_vpc_cgw-vpn.png" />
 
-<h4>Network Interface</h4>
+####Network Interface
 <img src="ide_stack_vpc_net.png" /><br /><br />
 A <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Network Interface</a> is an additional network card that you can add to any instance.<br />
 You can link the card to any instance and set the network properties in the right pannel.
 
-<h3>3.3 Top menu bar</h3>
+###3.3 Top menu bar
 <img src="ide_stack_topbar.png" /><br /><br />
 The topbar provides the basical actions during the stack edition:
 
@@ -786,8 +786,8 @@ The topbar provides the basical actions during the stack edition:
 - Export (as png or json)
 - Security Group rules links display
 
-<h3>3.4 Security</h3>
-<h3>3.4.1 Security Groups</h3>
-<h3>3.4.2 Network ACL (VPC Stack only)</h3>
-<h3>4. App management</h3>
-<h3>4.1 Description</h3>
+###3.4 Security
+###3.4.1 Security Groups
+###3.4.2 Network ACL (VPC Stack only)
+###4. App management
+###4.1 Description
