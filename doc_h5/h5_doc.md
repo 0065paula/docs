@@ -1,4 +1,3 @@
-#Wiki HTML5
 ##Getting Started: Normal Mode
 ###1. Overview
 MadeiraCloud groups your resources and manages them as a single unit, either an “App” or a “Stack”. The concept is similar to VMware's vApp and OVF:
