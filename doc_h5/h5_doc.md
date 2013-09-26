@@ -314,8 +314,10 @@ Your VPC is now configured. Please, have a look at the <a href="" style="color: 
 ###2.2 VPC with Public and Private Subnets
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet. The instances in the public subnet can receive inbound traffic directly from the Internet, whereas the instances in the private subnet can't. The instances in the public subnet can send outbound traffic directly to the Internet, whereas the instances in the private subnet can't. Instead, the instances in the private subnet can access the Internet by using a network address translation (NAT) instance that you launch into the public subnet."
 
-The following diagram shows what we will create in this example:<br />
-![](vpc_stack_pr.png)<br />
+The following diagram shows what we will create in this example:
+
+![](vpc_stack_pr.png)
+
 
 Step by Step guide to configuring a VPC with Public and Private Subnets (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with a Public Subnet Only - Part 2.2.1</a> tutorial first, before creating this VPC.
 
