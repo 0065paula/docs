@@ -1,12 +1,20 @@
+TODO:
+
+- vpc_stack_prohw.png (VPC 2.4, private only)
+- upload images
+- edit topic links
+
+
+
 <h1>Wiki HTML5</h1>
 <h2>Getting Started: Normal Mode</h2>
 <h3>1. Overview</h3>
 MadeiraCloud groups your resources and manages them as a single unit, either an “App” or a “Stack”. The concept is similar to VMware's vApp and OVF:
 
-- A stack is a template of an application containing everything that's needed to run it, e.g., code, servers, storage, network configuration, etc., but in a static, re-usable form.
-- An app is a live instance of a stack. When launching a stack, all of its component resources will be provisioned and configured as specified in the stack to create a running version as an app. Apps can be monitored and managed as one entity, making backups easy.
+- A Stack is a template of an application containing everything that's needed to run it, e.g., code, servers, storage, network configuration, etc., but in a static, re-usable form.
+- An App is a live instance of a Stack. When launching a Stack, all of its component resources will be provisioned and configured as specified in the Stack to create a running version as an app. Apps can be monitored and managed as one entity, making backups easy.
 
-Put simply, an app is everything to do with a running setup and a stack is like a snapshot or image of an entire app. Stacks are reusable so they can be launched into multiple apps which will then each have their own unique component resources with no conflicts.
+Put simply, an App is everything to do with a running setup and a Stack is like a snapshot or image of an entire app. Stacks are reusable so they can be launched into multiple apps which will then each have their own unique component resources with no conflicts.
 
 <h3>2. Connecting MadeiraCloud and AWS</h3>
 An Amazon Web Services account is required in order to get full functionality from MadeiraCloud.
@@ -18,9 +26,9 @@ An Amazon Web Services account is required in order to get full functionality fr
 <h4>2.2 Entering your Credentials</h4>
 The next step is to let us know your AWS account credentials in order for MadeiraCloud to connect with AWS on your behalf.
 
-Go to your <a href="https://my.madeiracloud.com/user/me/edit/AWS">AWS Credentials</a> page on MadeiraCloud and you will be prompted with the following:
+You should be promped at your first connection to <a href="https://ide.madeiracloud.com/v2/">MadeiraCloud IDE</a>. If not, or if you want to update your credentials, login to <a href="https://ide.madeiracloud.com/v2/">MadeiraCloud IDE</a>, then click on your username on the top-right corner and "AWS Credential".
 
-<img src="https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-my-aws.png" />
+<img src="aws_cred.png" />
 
 You can find your AWS credentials by clicking <a href="https://aws-portal.amazon.com/gp/aws/securityCredentials">here</a> or selecting 'Security Credentials' from the 'My Account/Console' menu:
 
@@ -77,12 +85,12 @@ You can now see the Access Key ID and Secret Access Key for this user.
 
 Copy and paste these into your Madeira <a href="https://my.madeiracloud.com/user/me/edit/AWS">AWS Credentials</a> page and click 'Save' and you're done!
 
-<h3>3. Designing a simple stack (Drupal MySQL HA example)</h3>
-For this example, we're going to create a simple stack for quickly deploying a Drupal CMS site with MySQL master and slave databases.
+<h3>3. Designing a simple Stack (Drupal MySQL HA example)</h3>
+For this example, we're going to create a simple Stack for quickly deploying a Drupal CMS site with MySQL master and slave databases.
 
 1. Log in to the <a href="https://ide.madeiracloud.com/v2/">IDE</a>
-2. Create a new stack by clicking "Create new stack" on the top left of the IDE dashboard
-3. Choose the <a href="http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/">AWS region</a> where you want to create your stack<br />
+2. Create a new Stack by clicking "Create new Stack" on the top left of the IDE dashboard
+3. Choose the <a href="http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/">AWS region</a> where you want to create your Stack<br />
 <img src="create_stack.png" />
 4. Select "Classic" in the following menu (see <a href="" style="color: red;">VPC mode - Part xxx</a> for VPC)<br />
 <img src="create_stack_menu.png" />
@@ -92,7 +100,7 @@ For this example, we're going to create a simple stack for quickly deploying a D
 <img src="create_instances.png" />
 7. Click on each AMI icon and set the hostnames to the following in the right pannel<br />
 <img src="name_instances.png" />
-8. Associate an EIP to every instance. Pay attention to keep them associated until the execution of the stack (the ocome should be colored)<br />
+8. Associate an EIP to every instance. Pay attention to keep them associated until the execution of the Stack (the ocome should be colored)<br />
 <img src="add_eip.png" />
 9. Define two <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>, one for the front-end web server and one for the two back-end database servers<br /><br />
 Click on the web instance and then "Create new Security Group" in the "Security Groups" menu in the right pannel:<br />
@@ -118,16 +126,16 @@ You should at least have the following rules:<br />
 <img src="back_rules.png" /><br />
 Repeat the same operation for the "front" Security Group, in order to get the following rules.<br />
 <img src="front_rules.png" /><br /><br />
-Congratulations! Your stack is now set and ready to be launched!<br /><br />
-11. Click on the blank area of the canvas to put the focus on the Stack properties. Name the stack as "drupal-mysql-ha" in the right pannel, then click on the same icon on the left side of the top bar.<br />
+Congratulations! Your Stack is now set and ready to be launched!<br /><br />
+11. Click on the blank area of the canvas to put the focus on the Stack properties. Name the Stack as "drupal-mysql-ha" in the right pannel, then click on the same icon on the left side of the top bar.<br />
 <img src="save_stack.png" /><br />
-12. Launch the stack by clicking on the "Run Stack" button.<br />
+12. Launch the Stack by clicking on the "Run Stack" button.<br />
 <img src="run_stack.png" /><br />
-13. Name the app in the pop-up window, then click on "Run Stack".<br />
+13. Name the App in the pop-up window, then click on "Run Stack".<br />
 <img src="name_app.png" /><br />
-14. Wait until the app to be launched.<br />
+14. Wait until the App to be launched.<br />
 <img src="start_app.png" /><br />
-15. Once started, your app should looks like the following:<br />
+15. Once started, your App should looks like the following:<br />
 <img src="app_started.png" /><br />
 16. Click on the web instance to get the instance properties. You can see here all details concerning the running instance on the right pannel. We will pay attention here to the "Primary Public IP" and the "Key Pair".<br />
 <img src="app_details.png" /><br />
@@ -135,7 +143,7 @@ Congratulations! Your stack is now set and ready to be launched!<br /><br />
 <img src="dl_key.png" /><br />
 
 <h3>4. Setting up your application (Drupal MySQL HA example)</h3>
-After following the steps in <a href="" style="color:red;">Part 3 - Designing a simple stack</a>, your application is now running, and you have downloaded the KeyPair for the application.
+After following the steps in <a href="" style="color:red;">Part 3 - Designing a simple Stack</a>, your application is now running, and you have downloaded the KeyPair for the application.
 
 You will now need to SSH into the web instance.
 You can use any terminal client to do so. If you are running under Windows, which doesn't have any SSH compatible terminal embedded, we recomment PuTTY. In this case, you will also need to know how to <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?r=madeira">connect to Linux/UNIX Instances from PuTTY</a>.
@@ -263,12 +271,12 @@ EC2-VPC now has a default VPC which replaces EC2-Classic for new users/regions. 
 <br /><br /><br />
 You can learn more about the differences between the two platforms in the AWS docs.
 
-Madeira will automatically detect which platforms your currently selected region supports and if you have a default VPC. If required, you will be prompted to select a platform when creating a stack.
+Madeira will automatically detect which platforms your currently selected region supports and if you have a default VPC. If required, you will be prompted to select a platform when creating a Stack.
 
 <h4>Stack Restrictions:</h4>
 
-- You cannot mix EC2-Classic and EC2-VPC resources in the same stack
-- A stack can only contain one VPC (default or custom)
+- You cannot mix EC2-Classic and EC2-VPC resources in the same Stack
+- A Stack can only contain one VPC (default or custom)
 - Do not delete your default VPC in the AWS Console or you will only be able to create custom VPCs in the AWS Console and Madeira
 - Deleting or heaviy modifying default subnets or VPC nodes in the AWS Console will likely cause issues when using the EC2-VPC Default VPC in Madeira
 
@@ -281,10 +289,10 @@ The following diagram shows what we will create in this example:<br />
 
 Step by Step guide to configuring a VPC with a Public Subnet (you may want to have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial first, before creating a VPC)
 
-1. Create a new VPC stack, in the region of your choice:<br />
+1. Create a new VPC Stack, in the region of your choice:<br />
 <img src="vpc_region.png" /><br />
 <img src="vpc_select_stack.png" /><br />
-2. A default VPC is created when you create a new VPC stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
+2. A default VPC is created when you create a new VPC Stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
 You can optionaly edit the subnet details in the right pannel (don't forget to focus on the subnet by clicking on its blank area). The network address must be written following the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation:<br />
 <img src="vpc_default.png" />
 3. You can now add a new <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> of your choice by drag-n-drop it from the left pannel:<br />
@@ -301,7 +309,7 @@ Drag an IGW from the resource panel (VPC category) to anywhere within the VPC. N
 7. You can edit the Route Table properties to define routing rules on the right pannel after selecting it. Note that when you connect an RT to an IGW we will automatically add a destination "0.0.0.0/0" rule.<br />
 <img src="vpc_edit_rt.png" /><br />
 <h4>Optionally</h4>
-You can stop there and save the stack as a networking template or we can continue and launch it as an app.
+You can stop there and save the Stack as a networking template or we can continue and launch it as an app.
 
 1. Add an AMI to a Subnet<br />
 We can now drag on an AMI from the resource panel to inside the Subnet in our VPC.<br />
@@ -310,7 +318,7 @@ We can now drag on an AMI from the resource panel to inside the Subnet in our VP
 Next click on the bottom-right icon of the instance to attach an EIP.<br />
 <img src="vpc_add_eip.png" /><br />
 
-Your VPC is now configured. Please, have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to get more information about app creation.
+Your VPC is now configured. Please, have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to get more information about App creation.
 
 <h3>2.2 VPC with Public and Private Subnets</h3>
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet. The instances in the public subnet can receive inbound traffic directly from the Internet, whereas the instances in the private subnet can't. The instances in the public subnet can send outbound traffic directly to the Internet, whereas the instances in the private subnet can't. Instead, the instances in the private subnet can access the Internet by using a network address translation (NAT) instance that you launch into the public subnet."
@@ -320,10 +328,10 @@ The following diagram shows what we will create in this example:<br />
 
 Step by Step guide to configuring a VPC with Public and Private Subnets (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with a Public Subnet Only - Part 2.2.1</a> tutorial first, before creating this VPC.
 
-1. Create a new VPC stack, in the region of your choice:<br />
+1. Create a new VPC Stack, in the region of your choice:<br />
 <img src="vpc_region.png" /><br />
 <img src="vpc_select_stack.png" /><br />
-2. A default VPC is created when you create a new VPC stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
+2. A default VPC is created when you create a new VPC Stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
 You can optionaly edit the subnet details in the right pannel (don't forget to focus on the subnet by clicking on its blank area). The network address must be written following the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation:<br />
 <img src="vpc_default.png" />
 3. You can now add a new <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> of your choice by drag-n-drop it from the left pannel:<br />
@@ -467,10 +475,10 @@ The following diagram shows what we will create in this example:<br />
 
 Step by Step guide to configuring a VPC with Public Subnet and Private Subnets and Hardware VPN Access (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with Public and Private Subnets - Part 2.2.2</a> tutorial first, before creating this VPC.
 
-1. Create a new VPC stack, in the region of your choice:<br />
+1. Create a new VPC Stack, in the region of your choice:<br />
 <img src="vpc_region.png" /><br />
 <img src="vpc_select_stack.png" /><br />
-2. A default VPC is created when you create a new VPC stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
+2. A default VPC is created when you create a new VPC Stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
 You can optionaly edit the subnet details in the right pannel (don't forget to focus on the subnet by clicking on its blank area). The network address must be written following the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation:<br />
 <img src="vpc_default.png" />
 3. You can now add a new <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> of your choice by drag-n-drop it from the left pannel:<br />
@@ -578,10 +586,10 @@ The following diagram shows what we will create in this example:<br />
 
 Step by Step guide to configuring a VPC with a Private Subnet Only and Hardware VPN Access (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with Public and Private Subnets and Hardware VPN Access - Part 2.2.3</a> tutorial first, before creating this VPC.
 
-1. Create a new VPC stack, in the region of your choice:<br />
+1. Create a new VPC Stack, in the region of your choice:<br />
 <img src="vpc_region.png" /><br />
 <img src="vpc_select_stack.png" /><br />
-2. A default VPC is created when you create a new VPC stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
+2. A default VPC is created when you create a new VPC Stack, as well as a default <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Table</a>.<br />
 You can optionaly edit the subnet details in the right pannel (don't forget to focus on the subnet by clicking on its blank area). The network address must be written following the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation:<br />
 <img src="vpc_default.png" />
 3. You can now add a new <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> of your choice by drag-n-drop it from the left pannel:<br />
@@ -595,7 +603,7 @@ Drag a VGW in to the VPC. Note that it will snap to the right side of the VPC. O
 <img src="vpc_vpn_pro.png" /><br />
 6. Add a <a href="http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html">Customer Gateway</a><br />
 Drag a CGW to the canvas. Note that it must be outside the VPC. After have added the CGW you must enter the IP address of your CGW, e.g., "203.0.113.12". You can rename it as you wish.<br />
-<img src="vpc_cgw_pro.png" /><br />
+![](vpc_cgw_pro.png)<br />
 7. Connect the CGW and VGW with a VPN Connection<br />
 Connect the purple ports of the VGW and CGW to create a VPN. You must enter your VPN CIDR, e.g., "172.16.0.0/24", in the right pannel.<br />
 <img src="vpc_cgw_vpn_pro.png" /><br />
@@ -609,8 +617,8 @@ MadeiraCloud IDE is a What You See Is What You Get editor for cloud applications
 The IDE is composed of three different screens:
 
 - The dashboard
-- The stack edition
-- The app monitoring
+- The Stack edition
+- The App monitoring
 
 We will go through each of them in the following parts.
 
@@ -635,12 +643,12 @@ To access the dashboard, simply login to the IDE, or, at any point, you can go b
 <img src="ide_dashboard_access.png" /><br />
 
 <h4>Stack creation button</h4>
-A "Create new stack" has been implemented to help you creating new stacks with MadeiraCloud IDE. You can find it on the tol left of the dashboard. Please, go through <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to learn how to create a stack.<br /><br />
-<img src="ide_dashboard_newstack.png" /><br />
+A "Create new Stack" has been implemented to help you creating new Stacks with MadeiraCloud IDE. You can find it on the tol left of the dashboard. Please, go through <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to learn how to create a Stack.<br /><br />
+<img src="ide_dashboard_newStack.png" /><br />
 
 <h3>2.2 Main view</h3>
 <img src="ide_dashboard_main.png" /><br /><br />
-The "Main View" is the top view of the dashboard, showing the number of app and stack in every AWS region. The "Main View" is always displayed in the dashboard.
+The "Main View" is the top view of the dashboard, showing the number of App and Stack in every AWS region. The "Main View" is always displayed in the dashboard.
 
 <h3>2.3 Global Dashboard</h3>
 <img src="ide_dashboard_global.png" /><br /><br />
@@ -681,12 +689,12 @@ The Stack screen is where you design your Cloud infrstructure.
 The Stack edition screen is mainly composed of four areas:
 
 - The resources pannel on the left
-- The details pannel on the right
+- The property pannel on the right
 - The edition canvas in the middle
-- The menu bar on the top
+- The tool bar on the top
 
 <h4>Access</h4>
-To access the Stack edition screen, you can either create a new stack or edit an already existing one. Simply click on any of the Stack creation button to create a new one, or click on the second icon on the left menubar, then select the stack of your choice to edit an already existing stack.<br /><br />
+To access the Stack edition screen, you can either create a new Stack or edit an already existing one. Simply click on any of the Stack creation button to create a new one, or click on the second icon on the left menubar, then select the Stack of your choice to edit an already existing Stack.<br /><br />
 <img src="ide_stack_access.png" /><br />
 
 <h3>3.2 Resources</h3>
@@ -772,9 +780,9 @@ When you link a VGW to a CGW, you must define the network prefix in the properti
 A <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Network Interface</a> is an additional network card that you can add to any instance.<br />
 You can link the card to any instance and set the network properties in the right pannel.
 
-<h3>3.3 Top menu bar</h3>
+<h3>3.3 Toolbar</h3>
 <img src="ide_stack_topbar.png" /><br /><br />
-The topbar provides the basical actions during the stack edition:
+The toolbar provides the basical actions during the Stack edition:
 
 - Run the Stack
 - Save the Stack
@@ -788,6 +796,190 @@ The topbar provides the basical actions during the stack edition:
 
 <h3>3.4 Security</h3>
 <h3>3.4.1 Security Groups</h3>
+<h4>Description</h4>
+A <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Group</a> is a simplified packet-filtering firewall, helping you to controll the traffic through your infrastructure.
+
+Note that this basic level security is a first and mandatory step to make an infrastructure secure. However, it must not be considered as a sufficient security to build a secure infrastructure. Please, start by reading this <a href="http://en.wikipedia.org/wiki/Firewall_(computing)">article</a>, for example, if you would like to know more about firewalling and security.
+
+A Security Group is composed of one or more instance(s), and a set of rules. The rules can filter the incomming traffic (all Stacks) and outgoing traffic (VPC Stacks only).
+
+The rules can defined as following:
+
+- Incomming/Outgoing traffic
+- Source (incomming) or destination (outgoing) IP address or range (CIDR notation, 0.0.0.0/0 for all)
+- Source or destination port number or range (1-65535 for all)
+- Protocol (TCP, UDP or ICMP)
+
+The following instructions has been realized using a VPC Stack. For a normal Stack, the instructions should be similar, however, remember that it is not possible to define outgoing rules in normal Stacks, and we recommand you to setup your own firewall on every instance when using the normal Stacks.
+
+<h4>Default Security Group</h4>
+A default Security Group is automatically generated when creating a new Stack. All instance added to this Stack will automatically be placed in this Security Group.
+
+You can find and edit the Security Groups in the Stack or the instances properties (right pannel).
+
+![](ide_stack_sgedit.png)
+
+The Default Security Group already contains one rule, allowing all incomming TCP traffic on port 22 (SSH). This rule is mandatory if you want to manage your instance. However, you can reduce the IP range if you want to limit the users who can manage your instance.
+
+<h4>Create a custom Security Group</h4>
+If you want to establish different rules for your instances, you need to create some custom Security Groups. You can them define, for each of them, the outgoing and incoming rules.
+
+To create a custom Security Group, you can click on "Create new Security Group" just under the Security Groups list (instance or Stack properties, right pannel).
+
+You will be automatically redirected to the rules definition pannel. Jump two topics ahead if you want to define your rules now, or go back, follow this tutorial and define it later.
+
+We create two custom Security Groups for this example.
+
+![](ide_stack_sgcust.png)
+
+<h4>Associate a custom Security Group</h4>
+Once the custom Security Groups created, you can now add the instances inside the Security Groups. To do so, go on each instance properties, then Security Groups, tick the security group of your choice, then untick the DefaultSG.
+
+You should see the colored square on the bottom left of your instance changing, according to the Security Group you are using. Note that an instance can be in several security groups (including the DefaultSG). See <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">AWS Security Groups documentation</a> for more details about Security Groups themselves.
+
+![](ide_stack_sginst.png)
+
+<h4>Define Security Rules</h4>
+You are now ready to create rules in your Security Groups.
+
+To do so, click on the right arrow on the right side of the Security Group you want to edit.
+
+Once in the Security Group details, click on the "+" next to "Rule" to add a new rule, a pop-up will come out.
+
+This pop-up allows you to define the following rules:
+
+- Direction (incoming or outgoing traffic)
+- Source/Destination
+	- IP/range (<a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR</a> notation)
+	- Other Security Group
+- Protocol
+	- TCP: allow all TCP traffic on the selected port/range ("0-65535" for all)
+	- UDP: allow all UDP traffic on the selected port/range ("0-65535" for all)
+	- ICMP: select an ICMP packet type to allow (see the list for more details)
+	- Custom: allow all traffic on a <a href="http://en.wikipedia.org/wiki/List_of_IP_protocol_numbers">custom protocol</a>
+	- All: allow all traffic on the selected port/range ("0-65535" for all)
+
+Here is a simple example with two web servers and one database server. We defined the following rules:
+<table>
+	<tbody>
+		<tr>
+			<td rowspan="2">SG</td>
+			<td colspan="4">Security Group Rules</td>
+		</tr>
+		<tr style="border-bottom: 1px solid gray;">
+			<td>In / Out</td>
+			<td>Soure / Dest</td>
+			<td>Protocol</td>
+			<td>Port Range</td>
+		</tr>
+		<tr>
+			<td rowspan="7">custom-sg-1</td>
+			<td rowspan="3" style="border-left: 1px solid gray;">In</td>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>22</td>
+		</tr>
+		<tr>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>80</td>
+		</tr>
+		<tr>
+			<td>SG: custom-sg-1</td>
+			<td>All</td>
+			<td>0-65535</td>
+		</tr>
+		<tr>
+			<td rowspan="4" style="border-left: 1px solid gray;">Out</td>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>80</td>
+		</tr>
+		<tr>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>443</td>
+		</tr>
+		<tr>
+			<td>SG: custom-sg-1</td>
+			<td>All</td>
+			<td>0-65535</td>
+		</tr>
+		<tr style="border-bottom: 1px solid gray;">
+			<td>SG: custom-sg-2</td>
+			<td>TCP</td>
+			<td>3306</td>
+		</tr>
+		<tr>
+			<td rowspan="6">custom-sg-2</td>
+			<td rowspan="3" style="border-left: 1px solid gray;">In</td>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>22</td>
+		</tr>
+		<tr>
+			<td>SG: custom-sg-1</td>
+			<td>TCP</td>
+			<td>3306</td>
+		</tr>
+		<tr style="border-bottom: 1px solid gray;">
+			<td>SG: custom-sg-2</td>
+			<td>All</td>
+			<td>0-65535</td>
+		</tr>
+		<tr>
+			<td rowspan="3" style="border-left: 1px solid gray;">Out</td>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>80</td>
+		</tr>
+		<tr>
+			<td>IP range: 0.0.0.0/0</td>
+			<td>TCP</td>
+			<td>443</td>
+		</tr>
+		<tr>
+			<td>SG: custom-sg-2</td>
+			<td>All</td>
+			<td>0-65535</td>
+		</tr>
+	</tbody>
+</table>
+
+![](ide_stack_sgc1.png)
+
+![](ide_stack_sgc2.png)
+
 <h3>3.4.2 Network ACL (VPC Stack only)</h3>
+The Network ACL can be edited in the VPC properties.
+
+The Network ACL acts as a complementary firewall to the Security Groups, to control an entire Subnet.
+
+The ACL rules definition work the same way as Security Rules. It will not be described here, for more information about ACLs, please learn how to define Security Groups, then read <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">this article</a>.
+
 <h3>4. App management</h3>
-<h3>4.1 Description</h3>
+
+![](ide_app_all.png)
+
+
+The App screen is where you monitor your running App(s).
+
+<h4>Composition</h4>
+The App management screen is mainly composed of three areas:
+
+- The App visualisation in the middle
+- The property pannel on the right
+- The tool bar on the top
+
+<h4>Access</h4>
+To access the App management screen, you can either run a new Stack or view an already started one. Simply click on the "Run Stack" button to run a new Stack, or click on the third icon on the left menubar, then select the App of your choice to view an already existing App.
+
+![](ide_app_access.png)
+
+
+<h4>Properties</h4>
+You can display the properties of each element of your App from this screen.
+
+In our example, simply click on an instance to display the properties on the right pannel.
+
+![](ide_app_inst.png)
