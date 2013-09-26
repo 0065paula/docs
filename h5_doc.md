@@ -1,6 +1,5 @@
 TODO:
 
-- vpc_stack_prohw.png (VPC 2.4, private only)
 - upload images
 - edit topic links
 
@@ -9,9 +8,9 @@ TODO:
 MadeiraCloud groups your resources and manages them as a single unit, either an “App” or a “Stack”. The concept is similar to VMware's vApp and OVF:
 
 - A Stack is a template of an application containing everything that's needed to run it, e.g., code, servers, storage, network configuration, etc., but in a static, re-usable form.
-- An App is a live instance of a Stack. When launching a Stack, all of its component resources will be provisioned and configured as specified in the Stack to create a running version as an app. Apps can be monitored and managed as one entity, making backups easy.
+- An App is a live instance of a Stack. When launching a Stack, all of its component resources will be provisioned and configured as specified in the Stack to create a running version as an App. Apps can be monitored and managed as one entity, making backups easy.
 
-Put simply, an App is everything to do with a running setup and a Stack is like a snapshot or image of an entire app. Stacks are reusable so they can be launched into multiple apps which will then each have their own unique component resources with no conflicts.
+Put simply, an App is everything to do with a running setup and a Stack is like a snapshot or image of an entire App. Stacks are reusable so they can be launched into multiple apps which will then each have their own unique component resources with no conflicts.
 
 ###2. Connecting MadeiraCloud and AWS
 An Amazon Web Services account is required in order to get full functionality from MadeiraCloud.
