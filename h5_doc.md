@@ -91,7 +91,7 @@ For this example, we're going to create a simple Stack for quickly deploying a D
 ![](create_instances.png)
 7. Click on each AMI icon and set the hostnames to the following in the right pannel<br />
 ![](name_instances.png)
-8. Associate an EIP to every instance. Pay attention to keep them associated until the execution of the Stack (the icone should be colored)<br />
+8. Associate an EIP to every instance. Pay attention to keep them associated until the execution of the Stack (the icon should be colored)<br />
 ![](add_eip.png)
 9. Define two <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>, one for the front-end web server and one for the two back-end database servers<br /><br />
 Click on the web instance and then "Create new Security Group" in the "Security Groups" menu in the right pannel:<br />
