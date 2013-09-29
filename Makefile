@@ -33,12 +33,14 @@ doc: pandoc html aftercompile
 	@echo 
 
 pandoc:
-	cp -a ./source/h5_doc.md ./index.md
-	cp -a ./source/* ./themes/init/static/images
-	pandoc -f markdown -t rst index.md > index.rst
+	pandoc -f markdown -t rst ./source/h5_doc.md > index.rst
 
 aftercompile:
-	mv ./_build/html/_static/images/*.png ./_build/html/
+	mv ./source/*.png ./_build/html/
+	mv ./source/*.jpg ./_build/html/
+	mv ./source/*.jpeg ./_build/html/
+	mv ./source/*.gif ./_build/html/
+	mv ./source/*.bmp ./_build/html/
 
 page:
 	git checkout gh-pages
