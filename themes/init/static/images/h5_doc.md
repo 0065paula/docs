@@ -272,7 +272,7 @@ Madeira will automatically detect which platforms your currently selected region
 - Deleting or heaviy modifying default subnets or VPC nodes in the AWS Console will likely cause issues when using the EC2-VPC Default VPC in Madeira
 
 ###2. Step-by-step tutorials
-###2.1 VPC with a Public Subnet Only
+####2.1 VPC with a Public Subnet Only
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a single public subnet, and an Internet gateway to enable communication over the Internet. We recommend this configuration if you need to run a single-tier, public-facing web application, such as a blog or a simple website."
 
 The following diagram shows what we will create in this example:<br />
@@ -312,7 +312,7 @@ Next click on the bottom-right icon of the instance to attach an EIP.<br />
 
 Your VPC is now configured. Please, have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to get more information about App creation.
 
-###2.2 VPC with Public and Private Subnets
+####2.2 VPC with Public and Private Subnets
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html">Description</a>: "The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet. The instances in the public subnet can receive inbound traffic directly from the Internet, whereas the instances in the private subnet can't. The instances in the public subnet can send outbound traffic directly to the Internet, whereas the instances in the private subnet can't. Instead, the instances in the private subnet can access the Internet by using a network address translation (NAT) instance that you launch into the public subnet."
 
 The following diagram shows what we will create in this example:<br />
@@ -459,7 +459,7 @@ You can now add the following rules to the Security Groups (see the <a href="" s
 <td>443</td>
 </tr></tbody></table>
 
-###2.3 VPC with Public and Private Subnets and Hardware VPN Access
+####2.3 VPC with Public and Private Subnets and Hardware VPN Access
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario3.html">Description</a>: “The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet, and a virtual private gateway to enable communication with your own network over an IPsec VPN tunnel. We recommend this scenario if you want to extend your network into the cloud and also directly access the Internet from your VPC. This scenario enables you to run a multi-tiered application with a scalable web front end in a public subnet, and to house your data in a private subnet that is connected to your network by an IPsec VPN connection.”
 
 The following diagram shows what we will create in this example:<br />
@@ -570,7 +570,7 @@ Define it as follow:<br /><table><tbody><tr><td rowspan="2">SG</td>
 You can edit the VPC properties to configure DHCP in the right pannel.<br />
 ![](vpc_vpn_dhcp.png)
 
-###2.4 VPC with a Private Subnet Only and Hardware VPN Access
+####2.4 VPC with a Private Subnet Only and Hardware VPN Access
 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html">Description</a>: “The configuration for this scenario includes a virtual private cloud (VPC) with a single private subnet, and a virtual private gateway to enable communication with your own network over an IPsec VPN tunnel. There is no Internet gateway to enable communication over the Internet. We recommend this scenario if you want to extend your network into the cloud using Amazon's infrastructure without exposing your network to the Internet.”
 
 The following diagram shows what we will create in this example:<br />

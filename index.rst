@@ -482,7 +482,7 @@ Stack Restrictions:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2.1 VPC with a Public Subnet Only
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Description: "The configuration for this scenario includes a virtual
 private cloud (VPC) with a single public subnet, and an Internet gateway
@@ -536,7 +536,7 @@ Your VPC is now configured. Please, have a look at the Classic mode -
 Part 1. tutorial to get more information about App creation.
 
 2.2 VPC with Public and Private Subnets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Description: "The configuration for this scenario includes a virtual
 private cloud (VPC) with a public subnet and a private subnet. The
@@ -1286,7 +1286,7 @@ Only - Part 2.2.1 tutorial first, before creating this VPC.
        </tr></tbody></table>
 
 2.3 VPC with Public and Private Subnets and Hardware VPN Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Description: “The configuration for this scenario includes a virtual
 private cloud (VPC) with a public subnet and a private subnet, and a
@@ -1767,7 +1767,7 @@ before creating this VPC.
     configure DHCP in the right pannel. |image63|
 
 2.4 VPC with a Private Subnet Only and Hardware VPN Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Description: “The configuration for this scenario includes a virtual
 private cloud (VPC) with a single private subnet, and a virtual private
