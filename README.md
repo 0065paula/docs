@@ -11,4 +11,4 @@ MadeiraCloud HTML5 IDE Documents
 
 - [Document on GitHub Page](http://madeiracloud.github.io/h5-docs/)
 
-- [Document on ReadtheDocs](http://madeira-cloud-document.readthedocs.org/en/latest/)
+- [Document on ReadtheDocs](http://madeiracloud-document.readthedocs.org/en/latest/)
