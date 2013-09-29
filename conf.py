@@ -196,7 +196,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto/manual]).
 latex_documents = [
-  ('', 'MadeiraCloudDocument', u'MadeiraCloud Document',
+  ('default', 'MadeiraCloudDocument.tex', u'MadeiraCloud Document',
    u'MadeiraCloud', 'manual'),
 ]
 
