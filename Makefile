@@ -60,6 +60,7 @@ autocommit:
 
 deploy: page autocommit
 	git push origin gh-pages
+	git co master
 	@echo 
 	@echo "==========================================================="
 	@echo "    GitHub Pages has been Deployed!!!"
