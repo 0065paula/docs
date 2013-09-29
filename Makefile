@@ -33,9 +33,9 @@ doc: pandoc html aftercompile
 	@echo 
 
 pandoc:
-	cp -a ./source/h5_doc.md .
+	cp -a ./source/h5_doc.md ./index.md
 	cp -a ./source/* ./themes/init/static/images
-	pandoc -f markdown -t rst h5_doc.md > h5_doc.rst
+	pandoc -f markdown -t rst index.md > index.rst
 
 aftercompile:
 	mv ./_build/html/_static/images/*.png ./_build/html/
@@ -44,7 +44,6 @@ page:
 	git checkout gh-pages
 	git merge master --no-edit
 	cp -a _build/html/* .
-	mv h5_doc.html index.html
 	@echo 
 	@echo "==========================================================="
 	@echo "    GitHub Pages has been Generated Successful!!!"
@@ -59,7 +58,7 @@ autocommit:
 	git add -A
 	git ca --no-edit -m "Robot: Auto Deploy"
 
-deploy: commit page autocommit
+deploy: page autocommit
 	git push origin gh-pages
 	@echo 
 	@echo "==========================================================="
