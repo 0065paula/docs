@@ -1850,7 +1850,7 @@ This bar has two main menus:
 ~~~~~~~~~~~~
 
 2.1 Description
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 |image77|\  The dashboard is a control center where you can control both
 your Madeira activiry and your AWS account activity and resources.
@@ -1871,14 +1871,14 @@ dashboard. Please, go through Classic mode - Part 1. tutorial to learn
 how to create a Stack. |image79|\ 
 
 2.2 Main view
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 |image80|\  The "Main View" is the top view of the dashboard, showing
 the number of App and Stack in every AWS region. The "Main View" is
 always displayed in the dashboard.
 
 2.3 Global Dashboard
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 |image81|\  The global Dashboard is an overview of the costful AWS
 resources in all AWS regions. This view helps to quickly determine which
@@ -1895,7 +1895,7 @@ You can see there:
 note: VPCs are not costful, however, VPN connections to VPCs are.
 
 2.4 Region specific Dashboard
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |image82|\  The region specific Dashboard is an overview of different
 resources in a specific region.
@@ -1907,8 +1907,8 @@ This view is separated in two parts:
 -  The AWS resources view: You can see here the details of the most
    relevent AWS resources, wether or not created with MadeiraCloud IDE
 
-Details
-^^^^^^^
+2.5 Details
+^^^^^^^^^^^
 
 You can get more details about a specific resource by clicking on the
 "Detail" icon, on the right of each resource. This will display you all
@@ -1920,7 +1920,7 @@ For example, for an instance: |image83|
 ~~~~~~~~~~~~~~~~
 
 3.1 Description
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 |image84|\  The Stack screen is where you design your Cloud
 infrstructure.
@@ -1945,10 +1945,10 @@ menubar, then select the Stack of your choice to edit an already
 existing Stack. |image85|\ 
 
 3.2 Resources
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 3.2.1 Availability Zones
-~~~~~~~~~~~~~~~~~~~~~~~~
+''''''''''''''''''''''''
 
 |image86|\  The Availability Zones are the location of your resources on
 AWS, specific to each region.
@@ -1957,7 +1957,7 @@ You can switch to any other available AZ on the right pannel before
 running the Stack.
 
 3.2.2 Images
-~~~~~~~~~~~~
+''''''''''''
 
 |image87|\  The Images represent the EC2 Instances with the AMI of your
 choice.
@@ -1967,7 +1967,7 @@ field "Number of Instance", aimed to create groups of identical
 Instances (e.g. clustering).
 
 Images source
-^^^^^^^^^^^^^
+             
 
 You can select the AMIs source on the resources pannel. |image88|
 
@@ -1975,7 +1975,7 @@ You can either get an AMI from the community by clicking in the "Browse
 Community Images" button. |image89|
 
 3.2.3 Volume and Snapshots
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+''''''''''''''''''''''''''
 
 |image90|\  The Volumes are some additional drives that you can add to
 your instances in order to enhance the storage capacity. The Snapshots
@@ -1986,10 +1986,10 @@ pannel, then drop it on an instance. You can then configure the Volume
 in the right pannel.
 
 3.2.4 Load Balancer and Auto Scaling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+''''''''''''''''''''''''''''''''''''
 
 Load Balancers
-^^^^^^^^^^^^^^
+              
 
 |image91|\  The Load Balancers (ELB) are some pre-configured instances
 automatically distributing the incomming traffric accross multiple EC2
@@ -2001,7 +2001,7 @@ to the instances. You can configure the load balances on the right
 pannel.
 
 Auto Scaling Groups
-^^^^^^^^^^^^^^^^^^^
+                   
 
 |image92|\  The Auto Scaling Groups are some containers with an
 automatically set number of instances.
@@ -2011,7 +2011,7 @@ an AMI inside to define the type of instance to scale. You can then
 configure the Autoscaling Group in the right pannel.
 
 3.2.5 EIPs
-~~~~~~~~~~
+^^^^^^^^^^
 
 |image93|\  The EIPs are some static public IP address that you can
 associate to any instance/network card.
@@ -2020,7 +2020,7 @@ To activate an EIP, click on the bottom right icon of an instance in
 order to make it colored.
 
 3.2.6 Virtual Private Cloud (VPC Stack only)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |image94|\  A VPC is a virtual private network within a cloud
 infrastructure, isolating the resources from the internet.
@@ -2028,32 +2028,32 @@ infrastructure, isolating the resources from the internet.
 You can access the global VPC properties in the right pannel.
 
 Subnet
-^^^^^^
+''''''
 
 |image95|\  A subnet is, as its name implies, an isolated network inside
 a VPC. You must set here the subnet CIDR block. You can define as well
 some ACL rules.
 
 Route Table
-^^^^^^^^^^^
+'''''''''''
 
 |image96|\  A Route Table is a table gathering the different routes
 associated to a subnet.
 
 Internet Gateway
-^^^^^^^^^^^^^^^^
+''''''''''''''''
 
 |image97|\  An Internet Gateway makes the link between the Internet and
 the Route Tables.
 
 Virtual Gateway
-^^^^^^^^^^^^^^^
+'''''''''''''''
 
 |image98|\  A Virtual Gateway makes the link between a private VPN and
 the Route Tables.
 
 Customer Gateway
-^^^^^^^^^^^^^^^^
+''''''''''''''''
 
 |image99|\  A Customer Gateway is an indication of an external gateway
 owned by you (VPN endpoint). You must add the CGW ip address in the
@@ -2063,14 +2063,14 @@ When you link a VGW to a CGW, you must define the network prefix in the
 properties pannel. |image100|
 
 Network Interface
-^^^^^^^^^^^^^^^^^
+'''''''''''''''''
 
 |image101|\  A Network Interface is an additional network card that you
 can add to any instance. You can link the card to any instance and set
 the network properties in the right pannel.
 
 3.3 Top menu bar
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 |image102|\  The topbar provides the basical actions during the Stack
 edition:
@@ -2086,13 +2086,13 @@ edition:
 -  Security Group rules links display
 
 3.4 Security
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 3.4.1 Security Groups
-~~~~~~~~~~~~~~~~~~~~~
+'''''''''''''''''''''
 
 Description
-^^^^^^^^^^^
+           
 
 A Security Group is a simplified packet-filtering firewall, helping you
 to controll the traffic through your infrastructure.
@@ -2122,7 +2122,7 @@ recommand you to setup your own firewall on every instance when using
 the normal Stacks.
 
 Default Security Group
-^^^^^^^^^^^^^^^^^^^^^^
+                      
 
 A default Security Group is automatically generated when creating a new
 Stack. All instance added to this Stack will automatically be placed in
@@ -2140,7 +2140,7 @@ want to manage your instance. However, you can reduce the IP range if
 you want to limit the users who can manage your instance.
 
 Create a custom Security Group
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              
 
 If you want to establish different rules for your instances, you need to
 create some custom Security Groups. You can them define, for each of
@@ -2160,7 +2160,7 @@ We create two custom Security Groups for this example.
    :alt: 
 
 Associate a custom Security Group
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 
 
 Once the custom Security Groups created, you can now add the instances
 inside the Security Groups. To do so, go on each instance properties,
@@ -2177,7 +2177,7 @@ Groups themselves.
    :alt: 
 
 Define Security Rules
-^^^^^^^^^^^^^^^^^^^^^
+                     
 
 You are now ready to create rules in your Security Groups.
 
@@ -2611,7 +2611,7 @@ All
    :alt: 
 
 3.4.2 Network ACL (VPC Stack only)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Network ACL can be edited in the VPC properties.
 
