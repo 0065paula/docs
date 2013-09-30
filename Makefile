@@ -26,48 +26,49 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 ###############################################################################################################################################
 
 doc: pandoc html aftercompile
-	@echo 
+	@echo
 	@echo "==========================================================="
 	@echo "    Madeira Documents has been Generated Successful!!!"
 	@echo "==========================================================="
-	@echo 
+	@echo
 
 pandoc:
 	pandoc -f markdown -t rst ./source/h5_doc.md > index.rst
 
 aftercompile:
-	mv ./source/*.png ./_build/html/
-	mv ./source/*.jpg ./_build/html/
-	mv ./source/*.jpeg ./_build/html/
-	mv ./source/*.gif ./_build/html/
-	mv ./source/*.bmp ./_build/html/
+	-cp -a ./source/*.png ./_build/html/
+	-cp -a ./source/*.jpg ./_build/html/
+	-cp -a ./source/*.jpeg ./_build/html/
+	-cp -a ./source/*.gif ./_build/html/
+	-cp -a ./source/*.bmp ./_build/html/
+
 
 page:
 	git checkout gh-pages
 	git merge master --no-edit
 	cp -a _build/html/* .
-	@echo 
+	@echo
 	@echo "==========================================================="
 	@echo "    GitHub Pages has been Generated Successful!!!"
 	@echo "==========================================================="
-	@echo 
+	@echo
 
-commit: 
-	git add -A
-	git ca --no-edit -m "Robot: Auto Deploy"
+commit:
+	-git add -A
+	-git ca --no-edit -m "Robot: Auto Deploy"
 
-autocommit: 
-	git add -A
-	git ca --no-edit -m "Robot: Auto Deploy"
+autocommit:
+	-git add -A
+	-git ca --no-edit -m "Robot: Auto Deploy"
 
 deploy: page autocommit
 	git push origin gh-pages
 	git co master
-	@echo 
+	@echo
 	@echo "==========================================================="
 	@echo "    GitHub Pages has been Deployed!!!"
 	@echo "==========================================================="
-	@echo 
+	@echo
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
