@@ -638,8 +638,8 @@ div.related a {
 div.sphinxsidebar {
     height: 100%;
     overflow: scroll;
-    border-right: 1px solid #E2E2E2;
-    background-color: #e9e9e9;
+    border-right: 1px solid #aaa;
+    background-color: #fcfcfc;
 }
 
 div.sphinxsidebar h3 {
@@ -648,7 +648,7 @@ div.sphinxsidebar h3 {
     font-size: 24px;
     font-weight: normal;
     margin: 0;
-    padding: 0 0 20px;
+    padding: 0 0 8px;
 }
 
 div.sphinxsidebar h3 a {
@@ -673,7 +673,6 @@ div.sphinxsidebar p.topless {
 
 div.sphinxsidebar p.topless a {
     font-size: 18px;
-    font-weight: bold;
     padding: 15px 0;
     color: #3781c9;
     display: block;
@@ -701,13 +700,12 @@ div.sphinxsidebar input {
 }
 
 div.sphinxsidebar .sphinxsidebarwrapper ul li a {
-    color: #3781c9;
+    color: #3781B5;
     display: inline-block;
 }
 
 div.sphinxsidebar .sphinxsidebarwrapper > ul > li > a {
     font-size: 18px;
-    font-weight: bold;
     padding: 15px 0;
 }
 
@@ -719,4 +717,12 @@ div.sphinxsidebar .sphinxsidebarwrapper > ul > li > ul > li > a {
 div.sphinxsidebar .sphinxsidebarwrapper > ul > li > ul > li > ul > li > a {
     font-size: 14px;
     padding: 4px 0;
+}
+
+div.sphinxsidebar .sphinxsidebarwrapper ul.this-page-menu li a {
+    padding: 5px 0;
+}
+
+div.sphinxsidebar ul.this-page-menu {
+    margin: 0 10px 10px;
 }
