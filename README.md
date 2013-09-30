@@ -2,11 +2,11 @@ MadeiraCloud HTML5 IDE Documents
 ========
 ## Edit 
 Our document is writed by Markdown so you can edit it by Mou or anyother Markdown Editor.
-### Document File
+#### Document File
 `source/h5_doc.md`
-### Attatch Image
+#### Attatch Image
 Put image in source folder or upload it to Amazon S3
-### Put it Online
+#### Put it Online
 When you accomplish your edit work you must Build and Deploy it to make it effect
 
 ## Theme
