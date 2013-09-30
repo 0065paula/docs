@@ -64,7 +64,7 @@ div.sphinxsidebarwrapper {
 
 div.sphinxsidebar {
     float: left;
-    width: 350px;
+    width: 320px;
     margin-left: -100%;
     font-size: 90%;
 }
@@ -639,7 +639,7 @@ div.sphinxsidebar {
     height: 100%;
     overflow: scroll;
     border-right: 1px solid #E2E2E2;
-    background-color: #dcdcdc;
+    background-color: #e9e9e9;
 }
 
 div.sphinxsidebar h3 {
