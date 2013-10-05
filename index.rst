@@ -30,10 +30,11 @@ functionality from MadeiraCloud.
 2.1 Prerequisites
 ^^^^^^^^^^^^^^^^^
 
--  If you haven't already, please sign up for an AWS account (EC2 is
-   mandatory).
+-  If you haven't already, please `sign up for an AWS
+   account <http://aws.amazon.com/>`__ (EC2 is mandatory).
 -  And obviously, a Madeira account is also required. You can sign up
-   for a free account here.
+   for a `free account
+   here <https://my.madeiracloud.com/user/register>`__.
 
 2.2 Entering your Credentials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -41,16 +42,18 @@ functionality from MadeiraCloud.
 The next step is to let us know your AWS account credentials in order
 for MadeiraCloud to connect with AWS on your behalf.
 
-You should be promped at your first connection to MadeiraCloud IDE. If
-not, or if you want to update your credentials, login to MadeiraCloud
-IDE, then click on your username on the top-right corner and "AWS
-Credential".
+You should be promped at your first connection to `MadeiraCloud
+IDE <https://ide.madeiracloud.com/v2/>`__. If not, or if you want to
+update your credentials, login to `MadeiraCloud
+IDE <https://ide.madeiracloud.com/v2/>`__, then click on your username
+on the top-right corner and "AWS Credential".
 
 .. figure:: aws_cred.png
    :alt: 
 
-You can find your AWS credentials by clicking here or selecting
-'Security Credentials' from the 'My Account/Console' menu:
+You can find your AWS credentials by clicking
+`here <https://aws-portal.amazon.com/gp/aws/securityCredentials>`__ or
+selecting 'Security Credentials' from the 'My Account/Console' menu:
 
 .. figure:: https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-connect-sec.png
    :alt: 
@@ -82,7 +85,8 @@ AWS page, hit save and you are done.
 Make sure IAM access is enabled.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Log in to your AWS account and then go here.
+Log in to your AWS account and then go
+`here <https://aws-portal.amazon.com/gp/aws/manageYourAccount>`__.
 
 .. figure:: https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-active.png
    :alt: 
@@ -94,8 +98,9 @@ and then click Activate Now.
 Create a user for use with MadeiraCloud.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to the AWS Console and click the IAM tab, then create a group for
-your user. You can call it anything you like, but something Madeira
+Go to the AWS Console and click the `IAM
+tab <https://console.aws.amazon.com/iam/home>`__, then create a group
+for your user. You can call it anything you like, but something Madeira
 related probably makes sense!
 
 .. figure:: https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-create-group.png
@@ -131,8 +136,9 @@ Credentials'.
 
 You can now see the Access Key ID and Secret Access Key for this user.
 
-Copy and paste these into your Madeira AWS Credentials page and click
-'Save' and you're done!
+Copy and paste these into your Madeira `AWS
+Credentials <https://my.madeiracloud.com/user/me/edit/AWS>`__ page and
+click 'Save' and you're done!
 
 3. Designing a simple Stack (Drupal MySQL HA example)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,14 +146,17 @@ Copy and paste these into your Madeira AWS Credentials page and click
 For this example, we're going to create a simple Stack for quickly
 deploying a Drupal CMS site with MySQL master and slave databases.
 
-1.  Log in to the IDE
+1.  Log in to the `IDE <https://ide.madeiracloud.com/v2/>`__
 2.  Create a new Stack by clicking "Create new Stack" on the top left of
     the IDE dashboard
-3.  Choose the AWS region where you want to create your Stack |image0|
+3.  Choose the `AWS
+    region <http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/>`__
+    where you want to create your Stack |image0|
 4.  Select "Classic" in the following menu (see VPC mode - Part xxx for
     VPC) |image1|
-5.  From the resource panel on the left, select the Availability Zone of
-    your choice and drag'n'drop it to the canvas (Note: Availability
+5.  From the resource panel on the left, select the `Availability
+    Zone <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
+    of your choice and drag'n'drop it to the canvas (Note: Availability
     Zones depend on regions) |image2|
 6.  Following the same principle, drag'n'drop 3 instances ('Images'
     menu) inside the previously created Availability Zone (Note: We will
@@ -157,30 +166,34 @@ deploying a Drupal CMS site with MySQL master and slave databases.
 8.  Associate an EIP to every instance. Pay attention to keep them
     associated until the execution of the Stack (the icon should be
     colored) |image5|
-9.  Define two Security Groups, one for the front-end web server and one
-    for the two back-end database servers Click on the web instance and
-    then "Create new Security Group" in the "Security Groups" menu in
-    the right pannel: |image6|\  Name this Security Group "front":
-    |image7|\  Go back and assign the web instance to "front", then
-    remove it from the default Security Group: |image8|\  Repeat the
-    same operation to create a new "back" Security Group: |image9|\ 
-    Then add the two "primarydb" and "slavedb" instances to the "back"
-    Security Group, removing them from the default SG. |image10|\ 
+9.  Define two `Security
+    Groups <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__,
+    one for the front-end web server and one for the two back-end
+    database servers Click on the web instance and then "Create new
+    Security Group" in the "Security Groups" menu in the right pannel:
+    |image6|\  Name this Security Group "front": |image7|\  Go back and
+    assign the web instance to "front", then remove it from the default
+    Security Group: |image8|\  Repeat the same operation to create a new
+    "back" Security Group: |image9|\  Then add the two "primarydb" and
+    "slavedb" instances to the "back" Security Group, removing them from
+    the default SG. |image10|\ 
 10. Create the Security Rules to link the instances together Click on
     one of the "back" instances, then in the "Security Groups" menu in
     the right pannel, click on the right arrow on the right of the
     "back" SG to access its properties. In this menu, click on the "+"
     button to add a new rule. |image11|\  Start by adding a first rule
-    allowing the SSH connection to your instances (allow all connections
-    from port 22, following TCP protocol, inbound) for remote management
-    (note: the source(s) IP(s)/range must follow the CIDR notation).
-    |image12|\  Add a new rule to allow SQL connections from the "front"
-    Security Group (port 3306, TCP). |image13|\  Following the same
-    method, add a new rule to allow all TCP traffic between all the
-    instances of this Security Group (ports 1-65535). You may as well
-    want to allow all UDP and ICMP traffic. You should at least have the
-    following rules: |image14|\  Repeat the same operation for the
-    "front" Security Group, in order to get the following rules.
+    allowing the `SSH <http://www.openssh.org/>`__ connection to your
+    instances (allow all connections from port 22, following TCP
+    protocol, inbound) for remote management (note: the source(s)
+    IP(s)/range must follow the
+    `CIDR <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
+    notation). |image12|\  Add a new rule to allow SQL connections from
+    the "front" Security Group (port 3306, TCP). |image13|\  Following
+    the same method, add a new rule to allow all TCP traffic between all
+    the instances of this Security Group (ports 1-65535). You may as
+    well want to allow all UDP and ICMP traffic. You should at least
+    have the following rules: |image14|\  Repeat the same operation for
+    the "front" Security Group, in order to get the following rules.
     |image15|\  Congratulations! Your Stack is now set and ready to be
     launched!
 11. Click on the blank area of the canvas to put the focus on the Stack
@@ -210,8 +223,8 @@ application.
 You will now need to SSH into the web instance. You can use any terminal
 client to do so. If you are running under Windows, which doesn't have
 any SSH compatible terminal embedded, we recomment PuTTY. In this case,
-you will also need to know how to connect to Linux/UNIX Instances from
-PuTTY.
+you will also need to know how to `connect to Linux/UNIX Instances from
+PuTTY <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?r=madeira>`__.
 
 Disclamer
 ^^^^^^^^^
@@ -244,8 +257,8 @@ install Drupal:
 3.  ``chkconfig httpd on``
 4.  ``cd /var/www/html/``
 5.  ``wget http://ftp.drupal.org/files/projects/drupal-x.xx.tar.gz``
-    (replace ``x.xx`` with the latest version number from the Drupal
-    site.)
+    (replace ``x.xx`` with the latest version number from the `Drupal
+    site <http://drupal.org/project/drupal>`__.)
 6.  ``tar xzf drupal-x.xx.tar.gz`` (replace ``x.xx`` by your version
     number)
 7.  ``rm drupal-x.xx.tar.gz`` (then type ``y`` to confirm)
@@ -277,7 +290,7 @@ order to configure the databases:
 Setting up Drupal
 ^^^^^^^^^^^^^^^^^
 
-Open your browser and access: http://{web-public-hostname}:
+Open your browser and access: ``http://{web-public-hostname}``:
 
 1.  Select the type of installation you would like and click
     ``Save and Continue``
@@ -484,11 +497,12 @@ Stack Restrictions:
 2.1 VPC with a Public Subnet Only
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: "The configuration for this scenario includes a virtual
-private cloud (VPC) with a single public subnet, and an Internet gateway
-to enable communication over the Internet. We recommend this
-configuration if you need to run a single-tier, public-facing web
-application, such as a blog or a simple website."
+`Description <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html>`__:
+"The configuration for this scenario includes a virtual private cloud
+(VPC) with a single public subnet, and an Internet gateway to enable
+communication over the Internet. We recommend this configuration if you
+need to run a single-tier, public-facing web application, such as a blog
+or a simple website."
 
 The following diagram shows what we will create in this example:
 |image23|\ 
@@ -500,20 +514,27 @@ creating a VPC)
 1. Create a new VPC Stack, in the region of your choice: |image24|\ 
    |image25|\ 
 2. A default VPC is created when you create a new VPC Stack, as well as
-   a default Route Table. You can optionaly edit the subnet details in
-   the right pannel (don't forget to focus on the subnet by clicking on
-   its blank area). The network address must be written following the
-   CIDR notation: |image26|
-3. You can now add a new Availability Zone of your choice by drag-n-drop
-   it from the left pannel: |image27|
-4. When adding a new Availability Zone, a default subnet is created. You
-   can edit the subnet properties in the right pannel: |image28|\  Note
-   that all Subnets are automatically connected to the Main Route Table.
-   Subnets must be connected to only one Route Table.
-5. Add an Internet Gateway and connect it to the Route Table Drag an IGW
-   from the resource panel (VPC category) to anywhere within the VPC.
-   Note that the IGW will automatically snap to the left edge of the VPC
-   and you can only have one IGW per VPC. |image29|\ 
+   a default `Route
+   Table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__.
+   You can optionaly edit the subnet details in the right pannel (don't
+   forget to focus on the subnet by clicking on its blank area). The
+   network address must be written following the
+   `CIDR <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
+   notation: |image26|
+3. You can now add a new `Availability
+   Zone <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
+   of your choice by drag-n-drop it from the left pannel: |image27|
+4. When adding a new Availability Zone, a default
+   `subnet <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__
+   is created. You can edit the subnet properties in the right pannel:
+   |image28|\  Note that all Subnets are automatically connected to the
+   Main Route Table. Subnets must be connected to only one Route Table.
+5. Add an `Internet
+   Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html>`__
+   and connect it to the Route Table Drag an IGW from the resource panel
+   (VPC category) to anywhere within the VPC. Note that the IGW will
+   automatically snap to the left edge of the VPC and you can only have
+   one IGW per VPC. |image29|\ 
 6. You can now drag from the blue ports on the Route Table to the blue
    incoming port on the IGW to connect it. |image30|\ 
 7. You can edit the Route Table properties to define routing rules on
@@ -529,8 +550,10 @@ continue and launch it as an App.
 
 1. Add an AMI to a Subnet We can now drag on an AMI from the resource
    panel to inside the Subnet in our VPC. |image32|\ 
-2. Add an Elastic IP Next click on the bottom-right icon of the instance
-   to attach an EIP. |image33|\ 
+2. Add an `Elastic
+   IP <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__\ 
+   Next click on the bottom-right icon of the instance to attach an EIP.
+   |image33|\ 
 
 Your VPC is now configured. Please, have a look at the Classic mode -
 Part 1. tutorial to get more information about App creation.
@@ -538,13 +561,14 @@ Part 1. tutorial to get more information about App creation.
 2.2 VPC with Public and Private Subnets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: "The configuration for this scenario includes a virtual
-private cloud (VPC) with a public subnet and a private subnet. The
-instances in the public subnet can receive inbound traffic directly from
-the Internet, whereas the instances in the private subnet can't. The
-instances in the public subnet can send outbound traffic directly to the
-Internet, whereas the instances in the private subnet can't. Instead,
-the instances in the private subnet can access the Internet by using a
+`Description <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html>`__:
+"The configuration for this scenario includes a virtual private cloud
+(VPC) with a public subnet and a private subnet. The instances in the
+public subnet can receive inbound traffic directly from the Internet,
+whereas the instances in the private subnet can't. The instances in the
+public subnet can send outbound traffic directly to the Internet,
+whereas the instances in the private subnet can't. Instead, the
+instances in the private subnet can access the Internet by using a
 network address translation (NAT) instance that you launch into the
 public subnet."
 
@@ -558,26 +582,33 @@ Only - Part 2.2.1 tutorial first, before creating this VPC.
 1.  Create a new VPC Stack, in the region of your choice: |image35|\ 
     |image36|\ 
 2.  A default VPC is created when you create a new VPC Stack, as well as
-    a default Route Table. You can optionaly edit the subnet details in
-    the right pannel (don't forget to focus on the subnet by clicking on
-    its blank area). The network address must be written following the
-    CIDR notation: |image37|
-3.  You can now add a new Availability Zone of your choice by
-    drag-n-drop it from the left pannel: |image38|
-4.  When adding a new Availability Zone, a default subnet is created.
-    You can edit the subnet properties in the right pannel |image39|\ 
-    Note that all Subnets are automatically connected to the Main Route
-    Table. Subnets must be connected to only one Route Table.
+    a default `Route
+    Table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__.
+    You can optionaly edit the subnet details in the right pannel (don't
+    forget to focus on the subnet by clicking on its blank area). The
+    network address must be written following the
+    `CIDR <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
+    notation: |image37|
+3.  You can now add a new `Availability
+    Zone <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
+    of your choice by drag-n-drop it from the left pannel: |image38|
+4.  When adding a new Availability Zone, a default
+    `subnet <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__
+    is created. You can edit the subnet properties in the right pannel
+    |image39|\  Note that all Subnets are automatically connected to the
+    Main Route Table. Subnets must be connected to only one Route Table.
 5.  Add another subnet by dragging it from the resources pannel and
     dropping it in the Availability Zone. Name one subnet "public" with
     the CIDR IP "10.0.0.0/24" and the other "private" with the CIDR IP
     "10.0.1.0/24" as following: |image40|\ 
-6.  Add an Internet Gateway and connect it to the Route Table Drag an
-    IGW from the resource panel (VPC category) to anywhere within the
-    VPC. Note that the IGW will automatically snap to the left edge of
-    the VPC and you can only have one IGW per VPC. Then, drag from the
-    blue ports on the Route Table to the blue incoming port on the IGW
-    to connect it. |image41|\ 
+6.  Add an `Internet
+    Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html>`__
+    and connect it to the Route Table Drag an IGW from the resource
+    panel (VPC category) to anywhere within the VPC. Note that the IGW
+    will automatically snap to the left edge of the VPC and you can only
+    have one IGW per VPC. Then, drag from the blue ports on the Route
+    Table to the blue incoming port on the IGW to connect it.
+    |image41|\ 
 7.  You can click on the Route Table to define routing rules. Note that
     when you connect an RT to an IGW we will automatically add a
     destination "0.0.0.0/0" rule. |image42|\ 
@@ -1288,15 +1319,15 @@ Only - Part 2.2.1 tutorial first, before creating this VPC.
 2.3 VPC with Public and Private Subnets and Hardware VPN Access
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: “The configuration for this scenario includes a virtual
-private cloud (VPC) with a public subnet and a private subnet, and a
-virtual private gateway to enable communication with your own network
-over an IPsec VPN tunnel. We recommend this scenario if you want to
-extend your network into the cloud and also directly access the Internet
-from your VPC. This scenario enables you to run a multi-tiered
-application with a scalable web front end in a public subnet, and to
-house your data in a private subnet that is connected to your network by
-an IPsec VPN connection.”
+`Description <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario3.html>`__:
+“The configuration for this scenario includes a virtual private cloud
+(VPC) with a public subnet and a private subnet, and a virtual private
+gateway to enable communication with your own network over an IPsec VPN
+tunnel. We recommend this scenario if you want to extend your network
+into the cloud and also directly access the Internet from your VPC. This
+scenario enables you to run a multi-tiered application with a scalable
+web front end in a public subnet, and to house your data in a private
+subnet that is connected to your network by an IPsec VPN connection.”
 
 The following diagram shows what we will create in this example:
 |image48|\ 
@@ -1309,26 +1340,33 @@ before creating this VPC.
 1.  Create a new VPC Stack, in the region of your choice: |image49|\ 
     |image50|\ 
 2.  A default VPC is created when you create a new VPC Stack, as well as
-    a default Route Table. You can optionaly edit the subnet details in
-    the right pannel (don't forget to focus on the subnet by clicking on
-    its blank area). The network address must be written following the
-    CIDR notation: |image51|
-3.  You can now add a new Availability Zone of your choice by
-    drag-n-drop it from the left pannel: |image52|
-4.  When adding a new Availability Zone, a default subnet is created.
-    You can edit the subnet properties in the right pannel |image53|\ 
-    Note that all Subnets are automatically connected to the Main Route
-    Table. Subnets must be connected to only one Route Table.
+    a default `Route
+    Table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__.
+    You can optionaly edit the subnet details in the right pannel (don't
+    forget to focus on the subnet by clicking on its blank area). The
+    network address must be written following the
+    `CIDR <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
+    notation: |image51|
+3.  You can now add a new `Availability
+    Zone <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
+    of your choice by drag-n-drop it from the left pannel: |image52|
+4.  When adding a new Availability Zone, a default
+    `subnet <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__
+    is created. You can edit the subnet properties in the right pannel
+    |image53|\  Note that all Subnets are automatically connected to the
+    Main Route Table. Subnets must be connected to only one Route Table.
 5.  Add another subnet by dragging it from the resources pannel and
     dropping it in the Availability Zone. Name one subnet "public" with
     the CIDR IP "10.0.0.0/24" and the other "private" with the CIDR IP
     "10.0.1.0/24" as following: |image54|\ 
-6.  Add an Internet Gateway and connect it to the Route Table Drag an
-    IGW from the resource panel (VPC category) to anywhere within the
-    VPC. Note that the IGW will automatically snap to the left edge of
-    the VPC and you can only have one IGW per VPC. Then, drag from the
-    blue ports on the Route Table to the blue incoming port on the IGW
-    to connect it. |image55|\ 
+6.  Add an `Internet
+    Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Internet_Gateway.html>`__
+    and connect it to the Route Table Drag an IGW from the resource
+    panel (VPC category) to anywhere within the VPC. Note that the IGW
+    will automatically snap to the left edge of the VPC and you can only
+    have one IGW per VPC. Then, drag from the blue ports on the Route
+    Table to the blue incoming port on the IGW to connect it.
+    |image55|\ 
 7.  You can click on the Route Table to define routing rules. Note that
     when you connect an RT to an IGW we will automatically add a
     destination "0.0.0.0/0" rule. |image56|\ 
@@ -1338,16 +1376,19 @@ before creating this VPC.
     incoming grey port on the RT. Note that, as subnets can only be
     associated with one RT, the previous association will automatically
     be removed. |image57|\ 
-9.  Add a Virtual Private Gateway and Connect it to the Route Table Drag
-    a VGW in to the VPC. Note that it will snap to the right side of the
-    VPC. Once added, connect the left blue port of the VGW to the blue
-    incoming port of the RT associated with the Private subnet. The RT
-    configuration dialogue will automatically appear. Enter the
-    Destination "172.16.0.0/12" in the right pannel. |image58|\ 
-10. Add a Customer Gateway Drag a CGW to the canvas. Note that it must
-    be outside the VPC. After have added the CGW you must enter the IP
-    address of your CGW, e.g., "203.0.113.12". You can rename it as you
-    wish. |image59|\ 
+9.  Add a `Virtual Private
+    Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html>`__
+    and Connect it to the Route Table Drag a VGW in to the VPC. Note
+    that it will snap to the right side of the VPC. Once added, connect
+    the left blue port of the VGW to the blue incoming port of the RT
+    associated with the Private subnet. The RT configuration dialogue
+    will automatically appear. Enter the Destination "172.16.0.0/12" in
+    the right pannel. |image58|\ 
+10. Add a `Customer
+    Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html>`__\ 
+    Drag a CGW to the canvas. Note that it must be outside the VPC.
+    After have added the CGW you must enter the IP address of your CGW,
+    e.g., "203.0.113.12". You can rename it as you wish. |image59|\ 
 11. Connect the CGW and VGW with a VPN Connection Connect the purple
     ports of the VGW and CGW to create a VPN. You must enter your VPN
     CIDR, e.g., "172.16.0.0/24", in the right pannel. |image60|\ 
@@ -1769,13 +1810,14 @@ before creating this VPC.
 2.4 VPC with a Private Subnet Only and Hardware VPN Access
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Description: “The configuration for this scenario includes a virtual
-private cloud (VPC) with a single private subnet, and a virtual private
-gateway to enable communication with your own network over an IPsec VPN
-tunnel. There is no Internet gateway to enable communication over the
-Internet. We recommend this scenario if you want to extend your network
-into the cloud using Amazon's infrastructure without exposing your
-network to the Internet.”
+`Description <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html>`__:
+“The configuration for this scenario includes a virtual private cloud
+(VPC) with a single private subnet, and a virtual private gateway to
+enable communication with your own network over an IPsec VPN tunnel.
+There is no Internet gateway to enable communication over the Internet.
+We recommend this scenario if you want to extend your network into the
+cloud using Amazon's infrastructure without exposing your network to the
+Internet.”
 
 The following diagram shows what we will create in this example:
 |image64|\ 
@@ -1788,25 +1830,31 @@ tutorial first, before creating this VPC.
 1. Create a new VPC Stack, in the region of your choice: |image65|\ 
    |image66|\ 
 2. A default VPC is created when you create a new VPC Stack, as well as
-   a default Route Table. You can optionaly edit the subnet details in
-   the right pannel (don't forget to focus on the subnet by clicking on
-   its blank area). The network address must be written following the
-   CIDR notation: |image67|
-3. You can now add a new Availability Zone of your choice by drag-n-drop
-   it from the left pannel: |image68|\ 
-4. When adding a new Availability Zone, a default subnet is created. You
-   can edit the subnet properties in the right pannel: |image69|\  Note
-   that all Subnets are automatically connected to the Main Route Table.
-   Subnets must be connected to only one Route Table.
+   a default `Route
+   Table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__.
+   You can optionaly edit the subnet details in the right pannel (don't
+   forget to focus on the subnet by clicking on its blank area). The
+   network address must be written following the
+   `CIDR <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
+   notation: |image67|
+3. You can now add a new `Availability
+   Zone <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
+   of your choice by drag-n-drop it from the left pannel: |image68|\ 
+4. When adding a new Availability Zone, a default
+   `subnet <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__
+   is created. You can edit the subnet properties in the right pannel:
+   |image69|\  Note that all Subnets are automatically connected to the
+   Main Route Table. Subnets must be connected to only one Route Table.
 5. Add a Virtual Private Gateway and Connect it to the Route Table Drag
    a VGW in to the VPC. Note that it will snap to the right side of the
    VPC. Once added, connect the left blue port of the VGW to the blue
    incoming port of the RT. Then, enter the Destination "0.0.0.0/0" in
    the right pannel. |image70|\ 
-6. Add a Customer Gateway Drag a CGW to the canvas. Note that it must be
-   outside the VPC. After have added the CGW you must enter the IP
-   address of your CGW, e.g., "203.0.113.12". You can rename it as you
-   wish. |image71|\ 
+6. Add a `Customer
+   Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html>`__\ 
+   Drag a CGW to the canvas. Note that it must be outside the VPC. After
+   have added the CGW you must enter the IP address of your CGW, e.g.,
+   "203.0.113.12". You can rename it as you wish. |image71|\ 
 7. Connect the CGW and VGW with a VPN Connection Connect the purple
    ports of the VGW and CGW to create a VPN. You must enter your VPN
    CIDR, e.g., "172.16.0.0/24", in the right pannel. |image72|\ 
@@ -1886,11 +1934,13 @@ resources are currently in use and would cost money.
 
 You can see there:
 
--  Running Instances
--  Elastic IPs
--  Volumes (EBS)
--  Load Balancers (ELB)
--  VPNs
+-  `Running Instances <http://aws.amazon.com/ec2/instance-types/>`__
+-  `Elastic
+   IPs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__
+-  `Volumes (EBS) <http://aws.amazon.com/ebs/>`__
+-  `Load Balancers
+   (ELB) <http://aws.amazon.com/elasticloadbalancing/>`__
+-  `VPNs <http://aws.amazon.com/vpc/>`__
 
 note: VPCs are not costful, however, VPN connections to VPCs are.
 
@@ -1950,8 +2000,9 @@ existing Stack. |image85|\
 3.2.1 Availability Zones
 ''''''''''''''''''''''''
 
-|image86|\  The Availability Zones are the location of your resources on
-AWS, specific to each region.
+|image86|\  The `Availability
+Zones <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
+are the location of your resources on AWS, specific to each region.
 
 You can switch to any other available AZ on the right pannel before
 running the Stack.
@@ -1959,17 +2010,9 @@ running the Stack.
 3.2.2 Images
 ''''''''''''
 
-|image87|\  The Images represent the EC2 Instances with the AMI of your
-choice.
-
-You can edit the Instance/AMI properties in the right pannel. Note a
-field "Number of Instance", aimed to create groups of identical
-Instances (e.g. clustering).
-
-Images source
-             
-
-You can select the AMIs source on the resources pannel. |image88|
+|image87|\  The [AMI](https://aws.amazon.com/amis">Images represent the
+`EC2 Instances <http://aws.amazon.com/ec2/instance-types/>`__ with the
+|image88|
 
 You can either get an AMI from the community by clicking in the "Browse
 Community Images" button. |image89|
@@ -1977,8 +2020,9 @@ Community Images" button. |image89|
 3.2.3 Volume and Snapshots
 ''''''''''''''''''''''''''
 
-|image90|\  The Volumes are some additional drives that you can add to
-your instances in order to enhance the storage capacity. The Snapshots
+|image90|\  The `Volumes <http://aws.amazon.com/ebs/>`__ are some
+additional drives that you can add to your instances in order to enhance
+the storage capacity. The `Snapshots <http://aws.amazon.com/ebs/>`__
 describe a state of a device at a precise moment.
 
 To attach a Volume to an Instance, simply drag it from the Resources
@@ -1991,9 +2035,10 @@ in the right pannel.
 Load Balancers
               
 
-|image91|\  The Load Balancers (ELB) are some pre-configured instances
-automatically distributing the incomming traffric accross multiple EC2
-Instances.
+|image91|\  The `Load Balancers
+(ELB) <http://aws.amazon.com/elasticloadbalancing/>`__ are some
+pre-configured instances automatically distributing the incomming
+traffric accross multiple EC2 Instances.
 
 Simply drag a load balancer from the Resources pannel then drop it
 outside of the Availability Zones. You can then link the load balancer
@@ -2003,8 +2048,9 @@ pannel.
 Auto Scaling Groups
                    
 
-|image92|\  The Auto Scaling Groups are some containers with an
-automatically set number of instances.
+|image92|\  The `Auto Scaling
+Groups <http://aws.amazon.com/autoscaling/>`__ are some containers with
+an automatically set number of instances.
 
 Once the group placed inside an Availability Zone, you can drag and drop
 an AMI inside to define the type of instance to scale. You can then
@@ -2013,8 +2059,10 @@ configure the Autoscaling Group in the right pannel.
 3.2.5 EIPs
 ^^^^^^^^^^
 
-|image93|\  The EIPs are some static public IP address that you can
-associate to any instance/network card.
+|image93|\  The
+`EIPs <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__
+are some static public IP address that you can associate to any
+instance/network card.
 
 To activate an EIP, click on the bottom right icon of an instance in
 order to make it colored.
@@ -2022,29 +2070,33 @@ order to make it colored.
 3.2.6 Virtual Private Cloud (VPC Stack only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image94|\  A VPC is a virtual private network within a cloud
-infrastructure, isolating the resources from the internet.
+|image94|\  A `VPC <http://aws.amazon.com/vpc/>`__ is a virtual private
+network within a cloud infrastructure, isolating the resources from the
+internet.
 
 You can access the global VPC properties in the right pannel.
 
 Subnet
 ''''''
 
-|image95|\  A subnet is, as its name implies, an isolated network inside
-a VPC. You must set here the subnet CIDR block. You can define as well
-some ACL rules.
+|image95|\  A
+`subnet <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html>`__
+is, as its name implies, an isolated network inside a VPC. You must set
+here the subnet CIDR block. You can define as well some ACL rules.
 
 Route Table
 '''''''''''
 
-|image96|\  A Route Table is a table gathering the different routes
-associated to a subnet.
+|image96|\  A `Route
+Table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__
+is a table gathering the different routes associated to a subnet.
 
 Internet Gateway
 ''''''''''''''''
 
-|image97|\  An Internet Gateway makes the link between the Internet and
-the Route Tables.
+|image97|\  An `Internet
+Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html>`__
+makes the link between the Internet and the Route Tables.
 
 Virtual Gateway
 '''''''''''''''
@@ -2055,9 +2107,10 @@ the Route Tables.
 Customer Gateway
 ''''''''''''''''
 
-|image99|\  A Customer Gateway is an indication of an external gateway
-owned by you (VPN endpoint). You must add the CGW ip address in the
-properties pannel.
+|image99|\  A `Customer
+Gateway <http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html>`__
+is an indication of an external gateway owned by you (VPN endpoint). You
+must add the CGW ip address in the properties pannel.
 
 When you link a VGW to a CGW, you must define the network prefix in the
 properties pannel. |image100|
@@ -2065,9 +2118,11 @@ properties pannel. |image100|
 Network Interface
 '''''''''''''''''
 
-|image101|\  A Network Interface is an additional network card that you
-can add to any instance. You can link the card to any instance and set
-the network properties in the right pannel.
+|image101|\  A `Network
+Interface <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html>`__
+is an additional network card that you can add to any instance. You can
+link the card to any instance and set the network properties in the
+right pannel.
 
 3.3 Top menu bar
 ^^^^^^^^^^^^^^^^
@@ -2094,14 +2149,17 @@ edition:
 Description
            
 
-A Security Group is a simplified packet-filtering firewall, helping you
-to controll the traffic through your infrastructure.
+A `Security
+Group <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__
+is a simplified packet-filtering firewall, helping you to controll the
+traffic through your infrastructure.
 
 Note that this basic level security is a first and mandatory step to
 make an infrastructure secure. However, it must not be considered as a
 sufficient security to build a secure infrastructure. Please, start by
-reading this article, for example, if you would like to know more about
-firewalling and security.
+reading this
+`article <http://en.wikipedia.org/wiki/Firewall_(computing)>`__, for
+example, if you would like to know more about firewalling and security.
 
 A Security Group is composed of one or more instance(s), and a set of
 rules. The rules can filter the incomming traffic (all Stacks) and
@@ -2170,8 +2228,9 @@ untick the DefaultSG.
 You should see the colored square on the bottom left of your instance
 changing, according to the Security Group you are using. Note that an
 instance can be in several security groups (including the DefaultSG).
-See AWS Security Groups documentation for more details about Security
-Groups themselves.
+See `AWS Security Groups
+documentation <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__
+for more details about Security Groups themselves.
 
 .. figure:: ide_stack_sginst.png
    :alt: 
@@ -2192,7 +2251,9 @@ This pop-up allows you to define the following rules:
 -  Direction (incoming or outgoing traffic)
 -  Source/Destination
 
-   -  IP/range (CIDR notation)
+   -  IP/range
+      (`CIDR <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__
+      notation)
    -  Other Security Group
 
 -  Protocol
@@ -2203,7 +2264,8 @@ This pop-up allows you to define the following rules:
       for all)
    -  ICMP: select an ICMP packet type to allow (see the list for more
       details)
-   -  Custom: allow all traffic on a custom protocol
+   -  Custom: allow all traffic on a `custom
+      protocol <http://en.wikipedia.org/wiki/List_of_IP_protocol_numbers>`__
    -  All: allow all traffic on the selected port/range ("0-65535" for
       all)
 
@@ -2620,7 +2682,8 @@ to control an entire Subnet.
 
 The ACL rules definition work the same way as Security Rules. It will
 not be described here, for more information about ACLs, please learn how
-to define Security Groups, then read this article.
+to define Security Groups, then read `this
+article <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html>`__.
 
 4. App management
 ~~~~~~~~~~~~~~~~~
