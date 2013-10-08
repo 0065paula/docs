@@ -21,6 +21,18 @@
     padding-left: 20px;
 }
 
+.markdown-body a {
+    color: #3781B5;
+    text-decoration: none;
+}
+
+.markdown-body a:hover {
+    color: #3781B5;
+    text-decoration: underline;
+}
+
+
+
 .markdown-body a.anchor {
     display: block;
     padding-right: 6px;
