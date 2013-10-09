@@ -19,6 +19,7 @@
 .markdown-body > div.section > div.section {
     background-color: #f4f4f4;
     padding-left: 20px;
+    padding-bottom: 1px;
 }
 
 .markdown-body a {

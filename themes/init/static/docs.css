@@ -59,7 +59,7 @@ div.related li.right {
 /* -- sidebar --------------------------------------------------------------- */
 
 div.sphinxsidebarwrapper {
-    padding: 95px 5px 0 10px;
+    padding: 0 5px 0 10px;
 }
 
 div.sphinxsidebar {
@@ -639,7 +639,7 @@ div.sphinxsidebar {
     height: 100%;
     overflow: scroll;
     border-right: 1px solid #aaa;
-    background-color: #fcfcfc;
+    background-color: #262024;
 }
 
 div.sphinxsidebar h3 {
@@ -665,6 +665,7 @@ div.sphinxsidebar h4 {
 
 div.sphinxsidebar p {
     color: #222;
+    /* margin: 0; */
 }
 
 div.sphinxsidebar p.topless {
@@ -725,4 +726,8 @@ div.sphinxsidebar .sphinxsidebarwrapper ul.this-page-menu li a {
 
 div.sphinxsidebar ul.this-page-menu {
     margin: 0 10px 10px;
+}
+p.logo {
+    margin: 20px 0 30px;
+    height: 34px;
 }
