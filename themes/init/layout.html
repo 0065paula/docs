@@ -52,11 +52,19 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
           {%- block sidebarlogo %}
-          {%- if logo %}
-            <p class="logo"><a href="{{ pathto(master_doc) }}">
-              <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
-            </a></p>
-          {%- endif %}
+          <!--
+            {%- if logo %}
+              <p class="logo"><a href="{{ pathto(master_doc) }}">
+                <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
+              </a></p>
+            {%- endif %}
+          -->
+          <p class="logo">
+            <a href="{{ pathto(master_doc) }}">
+              <img class="logo" src="https://ide.madeiracloud.com/v2/assets/images/ide/logo-t.png" alt="Logo"/>
+            </a>
+          </p>
+
           {%- endblock %}
           {%- if sidebars != None %}
             {#- new style sidebar: explicitly include/exclude templates #}
