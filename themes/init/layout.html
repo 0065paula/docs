@@ -24,6 +24,7 @@
   {%- set titlesuffix = "" %}
 {%- endif %}
 
+
 {%- macro relbar() %}
     <div class="related">
       <h3>{{ _('Navigation') }}</h3>
@@ -52,18 +53,11 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
           {%- block sidebarlogo %}
-          <!--
             {%- if logo %}
               <p class="logo"><a href="{{ pathto(master_doc) }}">
                 <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
               </a></p>
             {%- endif %}
-          -->
-          <p class="logo">
-            <a href="{{ pathto(master_doc) }}">
-              <img class="logo" src="https://ide.madeiracloud.com/v2/assets/images/ide/logo-t.png" alt="Logo"/>
-            </a>
-          </p>
 
           {%- endblock %}
           {%- if sidebars != None %}
@@ -163,6 +157,11 @@
 {%- block extrahead %} {% endblock %}
   </head>
   <body>
+<!-- icon preload -->
+{%- if logo %}
+    <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo" style="display:none;"/>
+{%- endif %}
+
 {%- block header %}{% endblock %}
 
 {%- block relbar1 %}{{ relbar() }}{% endblock %}
