@@ -1976,7 +1976,7 @@ For example, for an instance: |image83|
 infrstructure.
 
 Composition
-^^^^^^^^^^^
+'''''''''''
 
 The Stack edition screen is mainly composed of four areas:
 
@@ -1986,7 +1986,7 @@ The Stack edition screen is mainly composed of four areas:
 -  The tool bar on the top
 
 Access
-^^^^^^
+''''''
 
 To access the Stack edition screen, you can either create a new Stack or
 edit an already existing one. Simply click on any of the Stack creation
@@ -2010,9 +2010,19 @@ running the Stack.
 3.2.2 Images
 ''''''''''''
 
-|image87|\  The [AMI](https://aws.amazon.com/amis">Images represent the
-`EC2 Instances <http://aws.amazon.com/ec2/instance-types/>`__ with the
-|image88|
+|image87|\  The `AMI <https://aws.amazon.com/amis>`__ Images represent
+the `EC2 Instances <http://aws.amazon.com/ec2/instance-types/>`__ with
+the `AMI <https://aws.amazon.com/amis>`__ of your choice.
+
+You can edit the Instance/AMI properties in the right pannel. Note a
+field "Number of Instance", aimed to create groups of identical
+Instances (e.g.
+`clustering <http://en.wikipedia.org/wiki/Computer_cluster>`__).
+
+Images source
+             
+
+You can select the AMIs source on the resources pannel. |image88|
 
 You can either get an AMI from the community by clicking in the "Browse
 Community Images" button. |image89|
@@ -2032,8 +2042,8 @@ in the right pannel.
 3.2.4 Load Balancer and Auto Scaling
 ''''''''''''''''''''''''''''''''''''
 
-Load Balancers
-              
+　Load Balancers
+''''''''''''''''
 
 |image91|\  The `Load Balancers
 (ELB) <http://aws.amazon.com/elasticloadbalancing/>`__ are some
@@ -2045,8 +2055,8 @@ outside of the Availability Zones. You can then link the load balancer
 to the instances. You can configure the load balances on the right
 pannel.
 
-Auto Scaling Groups
-                   
+　Auto Scaling Groups
+'''''''''''''''''''''
 
 |image92|\  The `Auto Scaling
 Groups <http://aws.amazon.com/autoscaling/>`__ are some containers with
@@ -2146,8 +2156,8 @@ edition:
 3.4.1 Security Groups
 '''''''''''''''''''''
 
-Description
-           
+　Description
+'''''''''''''
 
 A `Security
 Group <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html>`__
@@ -2179,8 +2189,8 @@ it is not possible to define outgoing rules in normal Stacks, and we
 recommand you to setup your own firewall on every instance when using
 the normal Stacks.
 
-Default Security Group
-                      
+　Default Security Group
+''''''''''''''''''''''''
 
 A default Security Group is automatically generated when creating a new
 Stack. All instance added to this Stack will automatically be placed in
@@ -2197,8 +2207,8 @@ incomming TCP traffic on port 22 (SSH). This rule is mandatory if you
 want to manage your instance. However, you can reduce the IP range if
 you want to limit the users who can manage your instance.
 
-Create a custom Security Group
-                              
+　Create a custom Security Group
+''''''''''''''''''''''''''''''''
 
 If you want to establish different rules for your instances, you need to
 create some custom Security Groups. You can them define, for each of
@@ -2217,8 +2227,8 @@ We create two custom Security Groups for this example.
 .. figure:: ide_stack_sgcust.png
    :alt: 
 
-Associate a custom Security Group
-                                 
+　Associate a custom Security Group
+'''''''''''''''''''''''''''''''''''
 
 Once the custom Security Groups created, you can now add the instances
 inside the Security Groups. To do so, go on each instance properties,
@@ -2235,8 +2245,8 @@ for more details about Security Groups themselves.
 .. figure:: ide_stack_sginst.png
    :alt: 
 
-Define Security Rules
-                     
+　Define Security Rules
+'''''''''''''''''''''''
 
 You are now ready to create rules in your Security Groups.
 

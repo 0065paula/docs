@@ -677,7 +677,7 @@ For example, for an instance:<br />
 ![](ide_stack_all.png)<br /><br />
 The Stack screen is where you design your Cloud infrstructure.
 
-####Composition
+#####Composition
 The Stack edition screen is mainly composed of four areas:
 
 - The resources pannel on the left
@@ -685,7 +685,7 @@ The Stack edition screen is mainly composed of four areas:
 - The edition canvas in the middle
 - The tool bar on the top
 
-####Access
+#####Access
 To access the Stack edition screen, you can either create a new Stack or edit an already existing one. Simply click on any of the Stack creation button to create a new one, or click on the second icon on the left menubar, then select the Stack of your choice to edit an already existing Stack.<br /><br />
 ![](ide_stack_access.png)<br />
 
@@ -698,7 +698,7 @@ You can switch to any other available AZ on the right pannel before running the 
 
 #####3.2.2 Images
 ![](ide_stack_ami.png)<br /><br />
-The [AMI](https://aws.amazon.com/amis">Images</a> represent the [EC2 Instances](http://aws.amazon.com/ec2/instance-types/) with the <a href="https://aws.amazon.com/amis) of your choice.
+The [AMI](https://aws.amazon.com/amis) Images represent the [EC2 Instances](http://aws.amazon.com/ec2/instance-types/) with the [AMI](https://aws.amazon.com/amis) of your choice.
 
 You can edit the Instance/AMI properties in the right pannel. Note a field "Number of Instance", aimed to create groups of identical Instances (e.g. [clustering](http://en.wikipedia.org/wiki/Computer_cluster)).
 
@@ -717,14 +717,14 @@ The [Snapshots](http://aws.amazon.com/ebs/) describe a state of a device at a pr
 To attach a Volume to an Instance, simply drag it from the Resources pannel, then drop it on an instance. You can then configure the Volume in the right pannel.
 
 #####3.2.4 Load Balancer and Auto Scaling
-######Load Balancers
+#####　Load Balancers
 ![](ide_stack_elb.png)<br /><br />
 The [Load Balancers (ELB)](http://aws.amazon.com/elasticloadbalancing/) are some pre-configured instances automatically distributing the incomming traffric accross multiple EC2 Instances.
 
 Simply drag a load balancer from the Resources pannel then drop it outside of the Availability Zones. You can then link the load balancer to the instances.<br />
 You can configure the load balances on the right pannel.
 
-######Auto Scaling Groups
+#####　Auto Scaling Groups
 ![](ide_stack_autoscaling.png)<br /><br />
 The [Auto Scaling Groups](http://aws.amazon.com/autoscaling/) are some containers with an automatically set number of instances.
 
@@ -788,7 +788,7 @@ The topbar provides the basical actions during the Stack edition:
 
 ####3.4 Security
 #####3.4.1 Security Groups
-######Description
+#####　Description
 A [Security Group](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) is a simplified packet-filtering firewall, helping you to controll the traffic through your infrastructure.
 
 Note that this basic level security is a first and mandatory step to make an infrastructure secure. However, it must not be considered as a sufficient security to build a secure infrastructure. Please, start by reading this [article](http://en.wikipedia.org/wiki/Firewall_(computing)), for example, if you would like to know more about firewalling and security.
@@ -804,7 +804,7 @@ The rules can defined as following:
 
 The following instructions has been realized using a VPC Stack. For a normal Stack, the instructions should be similar, however, remember that it is not possible to define outgoing rules in normal Stacks, and we recommand you to setup your own firewall on every instance when using the normal Stacks.
 
-######Default Security Group
+#####　Default Security Group
 A default Security Group is automatically generated when creating a new Stack. All instance added to this Stack will automatically be placed in this Security Group.
 
 You can find and edit the Security Groups in the Stack or the instances properties (right pannel).
@@ -813,7 +813,7 @@ You can find and edit the Security Groups in the Stack or the instances properti
 
 The Default Security Group already contains one rule, allowing all incomming TCP traffic on port 22 (SSH). This rule is mandatory if you want to manage your instance. However, you can reduce the IP range if you want to limit the users who can manage your instance.
 
-######Create a custom Security Group
+#####　Create a custom Security Group
 If you want to establish different rules for your instances, you need to create some custom Security Groups. You can them define, for each of them, the outgoing and incoming rules.
 
 To create a custom Security Group, you can click on "Create new Security Group" just under the Security Groups list (instance or Stack properties, right pannel).
@@ -824,14 +824,14 @@ We create two custom Security Groups for this example.
 
 ![](ide_stack_sgcust.png)
 
-######Associate a custom Security Group
+#####　Associate a custom Security Group
 Once the custom Security Groups created, you can now add the instances inside the Security Groups. To do so, go on each instance properties, then Security Groups, tick the security group of your choice, then untick the DefaultSG.
 
 You should see the colored square on the bottom left of your instance changing, according to the Security Group you are using. Note that an instance can be in several security groups (including the DefaultSG). See [AWS Security Groups documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) for more details about Security Groups themselves.
 
 ![](ide_stack_sginst.png)
 
-######Define Security Rules
+#####　Define Security Rules
 You are now ready to create rules in your Security Groups.
 
 To do so, click on the right arrow on the right side of the Security Group you want to edit.
