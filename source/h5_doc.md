@@ -83,7 +83,7 @@ For this example, we're going to create a simple Stack for quickly deploying a D
 2. Create a new Stack by clicking "Create new Stack" on the top left of the IDE dashboard
 3. Choose the [AWS region](http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/) where you want to create your Stack<br />
 ![](create_stack.png)
-4. Select "Classic" in the following menu (see <a href="" style="color: red;">VPC mode - Part xxx</a> for VPC)<br />
+4. Select "Classic" in the following menu (see [VPC mode - Part 2.](#getting-started-virtual-private-cloud-vpc-mode) for VPC)<br />
 ![](create_stack_menu.png)
 5. From the resource panel on the left, select the [Availability Zone](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) of your choice and drag'n'drop it to the canvas (Note: Availability Zones depend on regions)<br />
 ![](availability_zones.png)
@@ -134,7 +134,7 @@ Congratulations! Your Stack is now set and ready to be launched!<br /><br />
 ![](dl_key.png)<br />
 
 ###4. Setting up your application (Drupal MySQL HA example)
-After following the steps in <a href="" style="color:red;">Part 3 - Designing a simple Stack</a>, your application is now running, and you have downloaded the KeyPair for the application.
+After following the steps in [Part 1.3. - Designing a simple Stack](#designing-a-simple-stack-drupal-mysql-ha-example), your application is now running, and you have downloaded the KeyPair for the application.
 
 You will now need to SSH into the web instance.
 You can use any terminal client to do so. If you are running under Windows, which doesn't have any SSH compatible terminal embedded, we recomment PuTTY. In this case, you will also need to know how to [connect to Linux/UNIX Instances from PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?r=madeira).
@@ -278,7 +278,7 @@ Madeira will automatically detect which platforms your currently selected region
 The following diagram shows what we will create in this example:<br />
 ![](vpc_stack.png)<br />
 
-Step by Step guide to configuring a VPC with a Public Subnet (you may want to have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial first, before creating a VPC)
+Step by Step guide to configuring a VPC with a Public Subnet (you may want to have a look at the [Classic mode - Part 1.](#overview) tutorial first, before creating a VPC)
 
 1. Create a new VPC Stack, in the region of your choice:<br />
 ![](vpc_region.png)<br />
@@ -310,7 +310,7 @@ We can now drag on an AMI from the resource panel to inside the Subnet in our VP
 Next click on the bottom-right icon of the instance to attach an EIP.<br />
 ![](vpc_add_eip.png)<br />
 
-Your VPC is now configured. Please, have a look at the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to get more information about App creation.
+Your VPC is now configured. Please, have a look at the [Classic mode - Part 1.](#overview) tutorial to get more information about App creation.
 
 ####2.2 VPC with Public and Private Subnets
 [Description](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html): "The configuration for this scenario includes a virtual private cloud (VPC) with a public subnet and a private subnet. The instances in the public subnet can receive inbound traffic directly from the Internet, whereas the instances in the private subnet can't. The instances in the public subnet can send outbound traffic directly to the Internet, whereas the instances in the private subnet can't. Instead, the instances in the private subnet can access the Internet by using a network address translation (NAT) instance that you launch into the public subnet."
@@ -318,7 +318,7 @@ Your VPC is now configured. Please, have a look at the <a href="" style="color: 
 The following diagram shows what we will create in this example:<br />
 ![](vpc_stack_pr.png)<br />
 
-Step by Step guide to configuring a VPC with Public and Private Subnets (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with a Public Subnet Only - Part 2.2.1</a> tutorial first, before creating this VPC.
+Step by Step guide to configuring a VPC with Public and Private Subnets (you may want to have a look at the [VPC Mode - VPC with a Public Subnet Only - Part 2.2.1](#vpc-with-a-public-subnet-only) tutorial first, before creating this VPC.
 
 1. Create a new VPC Stack, in the region of your choice:<br />
 ![](vpc_region.png)<br />
@@ -387,7 +387,7 @@ Configure the Security Groups as following:<br /><table><tbody><tr><th>AMI</th>
 </tr><tr><td>private</td>
 <td>DBServerSG</td>
 </tr></tbody></table>
-You can now add the following rules to the Security Groups (see the <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial before to know how to create Security Rules):<br /><table><tbody><tr><td rowspan="2">SG</td>
+You can now add the following rules to the Security Groups (see the [Classic mode - Part 1.](#overview) tutorial before to know how to create Security Rules):<br /><table><tbody><tr><td rowspan="2">SG</td>
 <td rowspan="2">AMI</td>
 <td colspan="4">Security Group Rules</td>
 </tr><tr style="border-bottom: 1px solid gray;"><td>In / Out</td>
@@ -465,7 +465,7 @@ You can now add the following rules to the Security Groups (see the <a href="" s
 The following diagram shows what we will create in this example:<br />
 ![](vpc_stack_prhw.png)<br />
 
-Step by Step guide to configuring a VPC with Public Subnet and Private Subnets and Hardware VPN Access (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with Public and Private Subnets - Part 2.2.2</a> tutorial first, before creating this VPC.
+Step by Step guide to configuring a VPC with Public Subnet and Private Subnets and Hardware VPN Access (you may want to have a look at the [VPC Mode - VPC with Public and Private Subnets - Part 2.2.2](#vpc-with-public-and-private-subnets) tutorial first, before creating this VPC.
 
 1. Create a new VPC Stack, in the region of your choice:<br />
 ![](vpc_region.png)<br />
@@ -576,7 +576,7 @@ You can edit the VPC properties to configure DHCP in the right pannel.<br />
 The following diagram shows what we will create in this example:<br />
 ![](vpc_stack_prohw.png)<br />
 
-Step by Step guide to configuring a VPC with a Private Subnet Only and Hardware VPN Access (you may want to have a look at the <a href="" style="color: red;">VPC Mode - VPC with Public and Private Subnets and Hardware VPN Access - Part 2.2.3</a> tutorial first, before creating this VPC.
+Step by Step guide to configuring a VPC with a Private Subnet Only and Hardware VPN Access (you may want to have a look at the [VPC Mode - VPC with Public and Private Subnets and Hardware VPN Access - Part 2.2.3](#vpc-with-public-and-private-subnets-and-hardware-vpn-access) tutorial first, before creating this VPC.
 
 1. Create a new VPC Stack, in the region of your choice:<br />
 ![](vpc_region.png)<br />
@@ -635,7 +635,7 @@ To access the dashboard, simply login to the IDE, or, at any point, you can go b
 ![](ide_dashboard_access.png)<br />
 
 ####Stack creation button
-A "Create new Stack" has been implemented to help you creating new Stacks with MadeiraCloud IDE. You can find it on the tol left of the dashboard. Please, go through <a href="" style="color: red;">Classic mode - Part 1.</a> tutorial to learn how to create a Stack.<br /><br />
+A "Create new Stack" has been implemented to help you creating new Stacks with MadeiraCloud IDE. You can find it on the tol left of the dashboard. Please, go through [Classic mode - Part 1.](#overview) tutorial to learn how to create a Stack.<br /><br />
 ![](ide_dashboard_newstack.png)<br />
 
 ####2.2 Main view

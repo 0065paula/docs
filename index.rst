@@ -152,8 +152,9 @@ deploying a Drupal CMS site with MySQL master and slave databases.
 3.  Choose the `AWS
     region <http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/>`__
     where you want to create your Stack |image0|
-4.  Select "Classic" in the following menu (see VPC mode - Part xxx for
-    VPC) |image1|
+4.  Select "Classic" in the following menu (see `VPC mode - Part
+    2. <#getting-started-virtual-private-cloud-vpc-mode>`__ for VPC)
+    |image1|
 5.  From the resource panel on the left, select the `Availability
     Zone <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`__
     of your choice and drag'n'drop it to the canvas (Note: Availability
@@ -216,7 +217,8 @@ deploying a Drupal CMS site with MySQL master and slave databases.
 4. Setting up your application (Drupal MySQL HA example)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-After following the steps in Part 3 - Designing a simple Stack, your
+After following the steps in `Part 1.3. - Designing a simple
+Stack <#designing-a-simple-stack-drupal-mysql-ha-example>`__, your
 application is now running, and you have downloaded the KeyPair for the
 application.
 
@@ -508,8 +510,8 @@ The following diagram shows what we will create in this example:
 |image23|\ 
 
 Step by Step guide to configuring a VPC with a Public Subnet (you may
-want to have a look at the Classic mode - Part 1. tutorial first, before
-creating a VPC)
+want to have a look at the `Classic mode - Part 1. <#overview>`__
+tutorial first, before creating a VPC)
 
 1. Create a new VPC Stack, in the region of your choice: |image24|\ 
    |image25|\ 
@@ -555,8 +557,9 @@ continue and launch it as an App.
    Next click on the bottom-right icon of the instance to attach an EIP.
    |image33|\ 
 
-Your VPC is now configured. Please, have a look at the Classic mode -
-Part 1. tutorial to get more information about App creation.
+Your VPC is now configured. Please, have a look at the `Classic mode -
+Part 1. <#overview>`__ tutorial to get more information about App
+creation.
 
 2.2 VPC with Public and Private Subnets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -576,8 +579,9 @@ The following diagram shows what we will create in this example:
 |image34|\ 
 
 Step by Step guide to configuring a VPC with Public and Private Subnets
-(you may want to have a look at the VPC Mode - VPC with a Public Subnet
-Only - Part 2.2.1 tutorial first, before creating this VPC.
+(you may want to have a look at the `VPC Mode - VPC with a Public Subnet
+Only - Part 2.2.1 <#vpc-with-a-public-subnet-only>`__ tutorial first,
+before creating this VPC.
 
 1.  Create a new VPC Stack, in the region of your choice: |image35|\ 
     |image36|\ 
@@ -819,8 +823,8 @@ Only - Part 2.2.1 tutorial first, before creating this VPC.
        </tr></tbody></table>
 
     You can now add the following rules to the Security Groups (see the
-    Classic mode - Part 1. tutorial before to know how to create
-    Security Rules):
+    `Classic mode - Part 1. <#overview>`__ tutorial before to know how
+    to create Security Rules):
 
     .. raw:: html
 
@@ -1333,9 +1337,10 @@ The following diagram shows what we will create in this example:
 |image48|\ 
 
 Step by Step guide to configuring a VPC with Public Subnet and Private
-Subnets and Hardware VPN Access (you may want to have a look at the VPC
-Mode - VPC with Public and Private Subnets - Part 2.2.2 tutorial first,
-before creating this VPC.
+Subnets and Hardware VPN Access (you may want to have a look at the `VPC
+Mode - VPC with Public and Private Subnets - Part
+2.2.2 <#vpc-with-public-and-private-subnets>`__ tutorial first, before
+creating this VPC.
 
 1.  Create a new VPC Stack, in the region of your choice: |image49|\ 
     |image50|\ 
@@ -1823,8 +1828,9 @@ The following diagram shows what we will create in this example:
 |image64|\ 
 
 Step by Step guide to configuring a VPC with a Private Subnet Only and
-Hardware VPN Access (you may want to have a look at the VPC Mode - VPC
-with Public and Private Subnets and Hardware VPN Access - Part 2.2.3
+Hardware VPN Access (you may want to have a look at the `VPC Mode - VPC
+with Public and Private Subnets and Hardware VPN Access - Part
+2.2.3 <#vpc-with-public-and-private-subnets-and-hardware-vpn-access>`__
 tutorial first, before creating this VPC.
 
 1. Create a new VPC Stack, in the region of your choice: |image65|\ 
@@ -1915,8 +1921,8 @@ Stack creation button
 
 A "Create new Stack" has been implemented to help you creating new
 Stacks with MadeiraCloud IDE. You can find it on the tol left of the
-dashboard. Please, go through Classic mode - Part 1. tutorial to learn
-how to create a Stack. |image79|\ 
+dashboard. Please, go through `Classic mode - Part 1. <#overview>`__
+tutorial to learn how to create a Stack. |image79|\ 
 
 2.2 Main view
 ^^^^^^^^^^^^^
