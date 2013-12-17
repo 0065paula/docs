@@ -942,6 +942,8 @@ Here is a simple example with two web servers and one database server. We define
 
 ![](ide_stack_sgc2.png)
 
+Note that you can also link the blue diamonds of each instance to create security rules.
+
 #####3.4.2 Network ACL (VPC Stack only)
 The Network ACL can be edited in the VPC properties.
 
