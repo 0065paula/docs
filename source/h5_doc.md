@@ -122,7 +122,7 @@ Congratulations! Your Stack is now set and ready to be launched!<br /><br />
 ![](save_stack.png)<br />
 12. Launch the Stack by clicking on the "Run Stack" button.<br />
 ![](run_stack.png)<br />
-13. Name the App in the pop-up window, then click on "Run Stack".<br />
+13. Name the App in the pop-up window, then click on "Run Stack". Note that you can define here the type of your application (production option brings some optimisations as well as protections), and get a quick review of your app (potential and actual mistakes or advices, as well as the global cost).<br />
 ![](name_app.png)<br />
 14. Wait until the App to be launched.<br />
 ![](start_app.png)<br />
@@ -717,57 +717,57 @@ The [Snapshots](http://aws.amazon.com/ebs/) describe a state of a device at a pr
 To attach a Volume to an Instance, simply drag it from the Resources pannel, then drop it on an instance. You can then configure the Volume in the right pannel.
 
 #####3.2.4 Load Balancer and Auto Scaling
-#####　Load Balancers
+######　Load Balancers
 ![](ide_stack_elb.png)<br /><br />
 The [Load Balancers (ELB)](http://aws.amazon.com/elasticloadbalancing/) are some pre-configured instances automatically distributing the incomming traffric accross multiple EC2 Instances.
 
 Simply drag a load balancer from the Resources pannel then drop it outside of the Availability Zones. You can then link the load balancer to the instances.<br />
 You can configure the load balances on the right pannel.
 
-#####　Auto Scaling Groups
+######　Auto Scaling Groups
 ![](ide_stack_autoscaling.png)<br /><br />
 The [Auto Scaling Groups](http://aws.amazon.com/autoscaling/) are some containers with an automatically set number of instances.
 
 Once the group placed inside an Availability Zone, you can drag and drop an AMI inside to define the type of instance to scale.<br />
 You can then configure the Autoscaling Group in the right pannel.
 
-####3.2.5 EIPs
+#####3.2.5 EIPs
 ![](ide_stack_eip.png)<br /><br />
 The [EIPs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) are some static public IP address that you can associate to any instance/network card.
 
 To activate an EIP, click on the bottom right icon of an instance in order to make it colored.
 
-####3.2.6 Virtual Private Cloud (VPC Stack only)
+#####3.2.6 Virtual Private Cloud (VPC Stack only)
 ![](ide_stack_vpc.png)<br /><br />
 A [VPC](http://aws.amazon.com/vpc/) is a virtual private network within a cloud infrastructure, isolating the resources from the internet.
 
 You can access the global VPC properties in the right pannel.
 
-#####Subnet
+######Subnet
 ![](ide_stack_vpc_subnet.png)<br /><br />
 A [subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html) is, as its name implies, an isolated network inside a VPC.<br />
 You must set here the subnet CIDR block. You can define as well some ACL rules.
 
-#####Route Table
+######Route Table
 ![](ide_stack_vpc_rt.png)<br /><br />
 A [Route Table](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html) is a table gathering the different routes associated to a subnet.
 
-#####Internet Gateway
+######Internet Gateway
 ![](ide_stack_vpc_igw.png)<br /><br />
 An [Internet Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) makes the link between the Internet and the Route Tables.
 
-#####Virtual Gateway
+######Virtual Gateway
 ![](ide_stack_vpc_vpn.png)<br /><br />
 A <a href="">Virtual Gateway</a> makes the link between a private VPN and the Route Tables.
 
-#####Customer Gateway
+######Customer Gateway
 ![](ide_stack_vpc_cgw.png)<br /><br />
 A [Customer Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/NetworkAdminGuide/Introduction.html) is an indication of an external gateway owned by you (VPN endpoint). You must add the CGW ip address in the properties pannel.
 
 When you link a VGW to a CGW, you must define the network prefix in the properties pannel.<br />
 ![](ide_stack_vpc_cgw-vpn.png)
 
-#####Network Interface
+######Network Interface
 ![](ide_stack_vpc_net.png)<br /><br />
 A [Network Interface](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) is an additional network card that you can add to any instance.<br />
 You can link the card to any instance and set the network properties in the right pannel.
@@ -788,7 +788,7 @@ The topbar provides the basical actions during the Stack edition:
 
 ####3.4 Security
 #####3.4.1 Security Groups
-#####　Description
+######　Description
 A [Security Group](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) is a simplified packet-filtering firewall, helping you to controll the traffic through your infrastructure.
 
 Note that this basic level security is a first and mandatory step to make an infrastructure secure. However, it must not be considered as a sufficient security to build a secure infrastructure. Please, start by reading this [article](http://en.wikipedia.org/wiki/Firewall_(computing)), for example, if you would like to know more about firewalling and security.
@@ -804,7 +804,7 @@ The rules can defined as following:
 
 The following instructions has been realized using a VPC Stack. For a normal Stack, the instructions should be similar, however, remember that it is not possible to define outgoing rules in normal Stacks, and we recommand you to setup your own firewall on every instance when using the normal Stacks.
 
-#####　Default Security Group
+######　Default Security Group
 A default Security Group is automatically generated when creating a new Stack. All instance added to this Stack will automatically be placed in this Security Group.
 
 You can find and edit the Security Groups in the Stack or the instances properties (right pannel).
@@ -813,7 +813,7 @@ You can find and edit the Security Groups in the Stack or the instances properti
 
 The Default Security Group already contains one rule, allowing all incomming TCP traffic on port 22 (SSH). This rule is mandatory if you want to manage your instance. However, you can reduce the IP range if you want to limit the users who can manage your instance.
 
-#####　Create a custom Security Group
+######　Create a custom Security Group
 If you want to establish different rules for your instances, you need to create some custom Security Groups. You can them define, for each of them, the outgoing and incoming rules.
 
 To create a custom Security Group, you can click on "Create new Security Group" just under the Security Groups list (instance or Stack properties, right pannel).
@@ -824,14 +824,14 @@ We create two custom Security Groups for this example.
 
 ![](ide_stack_sgcust.png)
 
-#####　Associate a custom Security Group
+######　Associate a custom Security Group
 Once the custom Security Groups created, you can now add the instances inside the Security Groups. To do so, go on each instance properties, then Security Groups, tick the security group of your choice, then untick the DefaultSG.
 
 You should see the colored square on the bottom left of your instance changing, according to the Security Group you are using. Note that an instance can be in several security groups (including the DefaultSG). See [AWS Security Groups documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) for more details about Security Groups themselves.
 
 ![](ide_stack_sginst.png)
 
-#####　Define Security Rules
+######　Define Security Rules
 You are now ready to create rules in your Security Groups.
 
 To do so, click on the right arrow on the right side of the Security Group you want to edit.
@@ -942,12 +942,22 @@ Here is a simple example with two web servers and one database server. We define
 
 ![](ide_stack_sgc2.png)
 
-####3.4.2 Network ACL (VPC Stack only)
+#####3.4.2 Network ACL (VPC Stack only)
 The Network ACL can be edited in the VPC properties.
 
 The Network ACL acts as a complementary firewall to the Security Groups, to control an entire Subnet.
 
 The ACL rules definition work the same way as Security Rules. It will not be described here, for more information about ACLs, please learn how to define Security Groups, then read [this article](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html).
+
+####3.5 Validation
+
+![](ide_stack_valid.png)
+
+You can, at any time, check the validity of your stack by clicking on the bottom-right button "Validate".
+
+This feature will use <a href="https://aws.amazon.com/premiumsupport/trustedadvisor/">TrustedAdvisor</a> to give you the actual and potential errors or advices on your stack.
+
+You can also review your stack when starting it (a stack with actual errors can't be launched).
 
 ###4. App management
 
@@ -975,3 +985,36 @@ You can display the properties of each element of your App from this screen.
 In our example, simply click on an instance to display the properties on the right pannel.
 
 ![](ide_app_inst.png)
+
+####Edition
+You can edit the running apps by clicking on the "Edit App" button (top-right).
+
+![](ide_app_edit.png)
+
+The view will change to something pretty similar to the stack edition view. You can edit your application here, as if it was a stack (with a few restrictions).
+
+Once done, you can either save the changes by clicking on "Apply" or discard them by clicking on the red cross.
+
+![](ide_app_edition.png)
+
+###5. Resource import
+
+MadeiraCloud IDE is now able to let you visualize existing and unmanaged <a href="http://aws.amazon.com/vpc/">VPCs</a> in a few clicks.
+
+#### Walkthrough
+
+1. On the Dashboard screen, select "Visualize unmanaged VPC"<br />
+![](ide_imp_start.png)
+2. MadeiraCloud IDE will search on your AWS account for the existing VPCs. Select there the VPC you want to import, and we will generate the stack diagram for you. Note that not all AWS resources can be imported for now (see limitation part).<br />
+![](ide_imp_select.png)
+3. Once imported, feel free to move the resources as you feel like it.<br />
+![](ide_imp_move.png)
+4. For now, you can only export the imported VPCs as picture files. However, VPC import as stacks will be available soon.<br />
+![](ide_imp_export.png)
+
+#### Limitations
+
+Currently, MadeiraCloud IDE supports the following resources
+- EC2	- Instance	- Elastic IP	- Volume (Attached to instance)	- Security Group	- Elastic Load Balancer	- Auto Scaling Group	- Launch Configuration	- Notification Configuration	- Scaling Policy- VPC (Custom VPC)	- Subnet	- Network ACL	- Customer Gateway	- VPN Connection	- DHCP option	- Internet Gateway	- VPN Gateway	- Route Table	- Network InterfaceUpcoming features:
+
+- RDS support- Cloud Watch Support- SNS support- Instance Grouping- Import as an App
