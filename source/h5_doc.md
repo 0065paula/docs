@@ -999,7 +999,7 @@ Once done, you can either save the changes by clicking on "Apply" or discard the
 
 ![](ide_app_edition.png)
 
-###5. Resource import
+###5. Resource import (private beta)
 
 MadeiraCloud IDE is now able to let you visualize existing and unmanaged <a href="http://aws.amazon.com/vpc/">VPCs</a> in a few clicks.
 
@@ -1017,6 +1017,32 @@ MadeiraCloud IDE is now able to let you visualize existing and unmanaged <a href
 #### Limitations
 
 Currently, MadeiraCloud IDE supports the following resources
-- EC2	- Instance	- Elastic IP	- Volume (Attached to instance)	- Security Group	- Elastic Load Balancer	- Auto Scaling Group	- Launch Configuration	- Notification Configuration	- Scaling Policy- VPC (Custom VPC)	- Subnet	- Network ACL	- Customer Gateway	- VPN Connection	- DHCP option	- Internet Gateway	- VPN Gateway	- Route Table	- Network InterfaceUpcoming features:
 
-- RDS support- Cloud Watch Support- SNS support- Instance Grouping- Import as an App
+- EC2
+- Instance
+- Elastic IP
+- Volume (Attached to instance)
+- Security Group
+- Elastic Load Balancer
+- Auto Scaling Group
+- Launch Configuration
+- Notification Configuration
+- Scaling Policy
+- VPC (Custom VPC)
+- Subnet
+- Network ACL
+- Customer Gateway
+- VPN Connection
+- DHCP option
+- Internet Gateway
+- VPN Gateway
+- Route Table
+- Network Interface
+
+Upcoming features:
+
+- RDS support
+- Cloud Watch Support
+- SNS support
+- Instance Grouping
+- Import as an App
