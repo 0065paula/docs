@@ -62,7 +62,7 @@ autocommit:
 	-git commit -a --no-edit -m "Robot: Auto Deploy"
 
 deploy: page autocommit
-	git push origin gh-pages
+	git push origin gh-pages -f
 	git checkout master
 	@echo
 	@echo "==========================================================="
