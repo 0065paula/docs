@@ -1,9 +1,9 @@
-MadeiraCloud HTML5 IDE Documents
+MadeiraCloud Documents
 ========
 ## Edit 
 Our document is writed by Markdown so you can edit it by Mou or anyother Markdown Editor.
 #### Document File
-  `source/h5_doc.md`
+  `source/doc.md`
 #### Attatch Image
   Put image in source folder or upload it to Amazon S3
 #### Put it Online
@@ -30,8 +30,8 @@ Run `make deploy` to deploy project on [GitHubPage](http://madeiracloud.github.i
 
 ## Links
 
-- [MadeiraCloud HTML5 IDE](https://ide.madeiracloud.com/v2/)
+- [MadeiraCloud IDE](https://ide.madeiracloud.com/)
 
-- [Document on GitHub Page](http://madeiracloud.github.io/h5-docs/)
+- [Document on GitHub Page](http://madeiracloud.github.io/docs/)
 
 - [Document on ReadtheDocs](http://madeiracloud-document.readthedocs.org/en/latest/)

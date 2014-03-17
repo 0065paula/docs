@@ -1,83 +1,8 @@
-# Part 1 - Basics and quick start
-## 1. Overview
-MadeiraCloud groups your resources and manages them as a single unit, either an “App” or a “Stack”. The concept is similar to VMware's vApp and OVF:
 
-- A Stack is a template of an application containing everything that's needed to run it, e.g., code, servers, storage, network and servers configuration, etc., but in a static, re-usable form.
-- An App is a live instance of a Stack. When launching a Stack, all of its component resources will be provisioned and configured as specified in the Stack to create a running version as an App. Apps can be monitored and managed as one entity, making backups easy.
+## 3. Case Studay: create a load-balanced, autoscaling WordPress app
+For this example, we're going to create a WordPress app, with ELB and AutoScaling
 
-Put simply, an App is everything to do with a running setup and a Stack is like a snapshot or image of an entire App. Stacks are reusable so they can be launched into multiple apps which will then each have their own unique component resources with no conflicts.
-
-## 2. Connecting MadeiraCloud and AWS
-An Amazon Web Services account is required in order to get full functionality from MadeiraCloud.
-
-### 2.1 - Prerequisites
-- If you haven't already, please [sign up for an AWS account](http://aws.amazon.com/) (EC2 is mandatory).
-- And obviously, a Madeira account is also required. You can sign up for a [free account here](https://ide.madeiracloud.com/register/).
-
-### 2.2 - Entering your Credentials
-The next step is to let us know your AWS account credentials in order for MadeiraCloud to connect with AWS on your behalf.
-
-You should be promped at your first connection to [MadeiraCloud IDE](https://ide.madeiracloud.com/). If not, or if you want to update your credentials, login to [MadeiraCloud IDE](https://ide.madeiracloud.com/login/), then click on your username on the top-right corner => "Settings" => "AWS Credential" => "Update".
-
-![](aws_cred.png)
-
-You can find your AWS credentials by clicking [here](https://aws-portal.amazon.com/gp/aws/securityCredentials).
-
-After logging in, you can find your Account Number in the top right of the page, just under your username:
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-connect-acc.png)
-
-This is optional, but is needed for some advanced features such as sharing an EC2 AMI or EBS snapshot with other users.
-
-Your Access Key and Secret Access Key can be found on the same page, under access credentials:
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-connect-keys.png)
-
-This is required in order for us to use AWS' Rest APIs to let you manage your AWS account through our application.
-
-Just copy and paste these three pieces of information in to your Madeira AWS page, hit save and you are done.
-
-## 2b. Connecting MadeiraCloud and AWS using IAM
-### 2b.1 - Make sure IAM access is enabled.
-Log in to your AWS account and then go [here](https://aws-portal.amazon.com/gp/aws/manageYourAccount).
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-active.png)
-
-Scroll down to the IAM user access section and make sure both the 'Account Activity Page' and 'Usage Reports Page' checkboxes are ticked and then click Activate Now.
-
-### 2b.2 - Create a user for use with MadeiraCloud.
-Go to the AWS Console and click the [IAM tab](https://console.aws.amazon.com/iam/home), then create a group for your user. You can call it anything you like, but something Madeira related probably makes sense!
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-create-group.png)
-
-Click 'Select' after 'Amazon EC2 Full Access'.
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-ec2-full.png)
-
-Here you can review the permissions. If you are happy, click 'Continue'.
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-policy.png)
-
-Then click the 'Create New Users' tab and enter a name for the new user. Leave 'Generate an access key for each User' ticked and then click 'Continue'.
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-new.png)
-
-Review your settings and click 'Finish'.
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-review.png)
-
-The IAM account has now been created. Click 'Show User Security Credentials'.
-
-![](https://s3-ap-northeast-1.amazonaws.com/madeiraassets/kb/kb-iam-cred.png)
-
-You can now see the Access Key ID and Secret Access Key for this user.
-
-Copy and paste these into your Madeira [AWS Credentials](https://my.madeiracloud.com/user/me/edit/AWS) page and click 'Save' and you're done!
-
-## 3. Create a simple Application (Drupal-MySQL example)
-For this example, we're going to create a simple Stack for quickly deploying a Drupal CMS site with MySQL master and slave databases.
-
-### 3.1 - Design your stack
+### 3.1 - Stack Design
 1. Log in to the [IDE](https://ide.madeiracloud.com/)
 2. Create a new Stack by clicking "Create new Stack" on the top left of the IDE dashboard
 3. Choose the [AWS region](http://aws.amazon.com/about-aws/globalinfrastructure/regional-product-services/) where you want to create your Stack<br />
@@ -126,7 +51,7 @@ Repeat the same operation for the "front" Security Group, in order to get the fo
 ![](save_stack.png)<br />
 Congratulations! Your Stack is now set and ready to be launched!<br /><br />
 
-### 3.2 - Configure your servers using VisualOps' states editor
+### 3.2 - Configure the instance state
 After following the steps in [3.1 - Design your Stack](#design-your-stack), all the elements of your stack has been placed and the stack is ready to get started.
 
 However, VisualOps' states editor now allows you to configure the software configuration of your instances directly from the IDE, even before starting the App.
