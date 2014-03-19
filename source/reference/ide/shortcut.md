@@ -11,7 +11,7 @@ This document collects the shortcuts supported in the IDE.
 - scroll the canvas: `CTRL+drag` or `COMMAND+drag`
 
 ### State Panel - *General*
-- swith focus in the state list: &uparrow;/&downarrow; 
+- swith focus in the state list: &uarr;/&darr; 
 - select/unselect the focused state: `SPACE`
 - expand the focused state: `ENTER`
 - fold the focused state: `ESC`
@@ -25,7 +25,7 @@ This document collects the shortcuts supported in the IDE.
 - deslect all states: `CTRL+D` or `COMMAND+D`
 - add a new state: `CTRL+ENTER` or `COMMAND+ENTER`
 - delete selected states: `CTRL+DEL` or `COMMAND+DEL`
-- move the focused state: `CTRL+`&uparrow;/&downarrow; or `COMMAND+`&uparrow;/&downarrow;
+- move the focused state: `CTRL+`&uarr;/&darr; or `COMMAND+`&uparrow;/&downarrow;
 - copy the selected states: `CTRL+C` or `COMMAND+C`
 - paste the copied states: `CTRL+V` or `COMMAND+V`
 - undo: `CTRL+Z` or `COMMAND+Z`
