@@ -1,12 +1,20 @@
-# Part 3 - IDE interface
+# IDE
 ## 1. Global details
 ### 1.1 - Description
 ![](ide_full.png)<br />
-MadeiraCloud IDE is a What You See Is What You Get editor for cloud applications. In other words, the project enables system architects to draw their infrastructure instead of writing it, reducing the time taken to design, provision, configure and connect distributed cloud resources.
+MadeiraCloud IDE is a visual consle for your cloud-based applications. In other words, the product enables you to both design your system in a "drag-n-drop" manner, as well as monitor them from the top view.
+
+#### Design
+> draw the system instead of writing a spec, reducing the time taken to design, provision, configure and connect distributed cloud resources.
+
+#### Monitor
+
 
 The IDE is mainly composed of three different screens:
-
-- The dashboard
+- Dashboard
+- Stack
+- App
+    - 
 - The Stack edition
 - The App monitoring
 

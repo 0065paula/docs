@@ -1,69 +1,32 @@
 # IDE Shortcut
 
-Stack/App Operation
+This document collects the shortcuts supported in the IDE.
 
-P
-Show Property Panel
-S
-Show State Panel
-Option + Drag Instance
-Alt + Drag Instance
-Duplicate Instance
-Delete
-Delete/Backspace
-Delete selected item
-Command + S
-Ctrl + S
-Save stack
-Command + Drag on canvas
-Ctrl + Drag on canvas
-Scroll canvas
-State Panel - General
+### Canvas
+- open `Property Panel`: `P`
+- open `State Panel`: `S`
+- duplicate the selected instance: `ALT+drag`
+- delete the selected item: `DEL` or `BACKSPACE`
+- save the stack: `CTRL+S` or `COMMAND+S`
+- scroll the canvas: `CTRL+drag` or `COMMAND+drag`
 
-Up/Down
-Switch focused state
-Space
-Select/Unselect focused state
-ENTER
-Expand focused state
-ESC
-Collapse focused state
-Tab
-Focus to next input
-Shift + Tab
-Focus to previous input
-Command + I
-Ctrl + I
-Open/Close information sidebar
-Command + L
-Ctrl + L
-Open/Close log sidebar
-State Panel Operation - Editable Mode
+### State Panel - *General*
+- swith focus in the state list: &uparrow;/&downarrow; 
+- select/unselect the focused state: `SPACE`
+- expand the focused state: `ENTER`
+- fold the focused state: `ESC`
+- switch to the next input: `TAB`
+- switch back to the previsous input: `SHIFT+TAB`
+- open/fold the help: `CTRL+I` or `COMMAND+I`
+- open/fold the log window: `CTRL+L` or `COMMAND+L`
 
-Command + A
-Ctrl + A
-Select all states
-Command + D
-Ctrl + D
-Deselect states
-Command + Enter
-Ctrl + Enter
-Create new state
-Command + Delete
-Command + Delete
-Delete selected state
-Command + Up/Down
-Ctrl + Up/Down
-Move focused state
-Command + C
-Ctrl + C
-Copy selected state
-Command + V
-Ctrl + V
-Paste copied state
-Command + Z
-Ctrl + Z
-Undo
-Command + Y
-Ctrl + Y
-Redo
+### State Panel - *Edit Mode*
+- select all states: `CTRL+A` or `COMMAND+A`
+- deslect all states: `CTRL+D` or `COMMAND+D`
+- add a new state: `CTRL+ENTER` or `COMMAND+ENTER`
+- delete selected states: `CTRL+DEL` or `COMMAND+DEL`
+- move the focused state: `CTRL+`&uparrow;/&downarrow; or `COMMAND+`&uparrow;/&downarrow;
+- copy the selected states: `CTRL+C` or `COMMAND+C`
+- paste the copied states: `CTRL+V` or `COMMAND+V`
+- undo: `CTRL+Z` or `COMMAND+Z`
+- redo: `CTRL+Y` or `COMMAND+Y`

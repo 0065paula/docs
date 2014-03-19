@@ -1,6 +1,6 @@
-# Part 2 - Reserved Keyword
+# Reserved Keyword
 
-The following keywoard are reserved, please don't use these for your resource's name.
+The following keywoard are reserved in the IDE, please don't use them for your resource's name:
 
 - self
 - this

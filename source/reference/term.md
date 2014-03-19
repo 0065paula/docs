@@ -1,5 +1,5 @@
 # Term
-This document collects the termiologies defined by VisualOps
+This document collects the terms introduced by VisualOps
 
 Stack
 > A `stack` is a template of an application containing everything that's needed to run it, e.g., resource spec (servers, storage, network) + software configuration (package, code, files and data, etc.), in a static, re-usable form. Given this, a `stack` is the definition of a running application's state collection (both resource and configuration).
